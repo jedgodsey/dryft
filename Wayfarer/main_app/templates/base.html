@@ -1,4 +1,4 @@
-{% comment %} {% load static %} {% endcomment %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CaseWorks - {% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"> {% endcomment %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
   <header class="navbar-fixed">
@@ -19,7 +19,8 @@
         </ul>
         <ul class="right">
           <li><a href="/">Home</a></li>
-          {% comment %} <li><a href="{% url 'about' %}">About</a></li> {% endcomment %}
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Log In</a></li>
         </ul>
       </div>
     </nav>
