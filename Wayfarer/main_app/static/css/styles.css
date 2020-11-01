@@ -13,3 +13,6 @@ footer {
     text-align: right;
 }
 
+.carousel.carousel-slider{
+    height: 500px ;
+}

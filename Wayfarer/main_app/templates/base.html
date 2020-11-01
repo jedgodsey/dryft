@@ -24,8 +24,14 @@
         </ul>
         <ul class="right">
           <li><a href="/">Home</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Log In</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Feed</a></li>
+            <li><a href="#">Find Destination</a></li>
+          {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
