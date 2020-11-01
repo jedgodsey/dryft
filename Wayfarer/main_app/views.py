@@ -18,8 +18,8 @@ def about(request):
 
 @login_required
 def profile(request):#also known as profile index
-    profile = Profile.objects.filter(user=request.user)
-    return render(request,'profile/index.htmn', profile)
+    profile = Profile.objects.get(user = request.user)
+    return render(request,'profile/index.html', {'profile':profile})
 
 def post_index(request, post_id):
     pass

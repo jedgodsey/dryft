@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wayfarer_project.wsgi.application'
-
+AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
