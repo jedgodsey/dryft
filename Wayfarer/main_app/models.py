@@ -12,7 +12,7 @@ class City(models.Model):
 
 class Profile(models.Model):
     name = models.CharField(max_length = 100)
-    current_city = models.ForeignKey(City, on_delete = models.CASCADE)
+    current_city = models.ForeignKey(City, on_delete = models.CASCADE, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
