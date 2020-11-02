@@ -12,7 +12,7 @@ def about(request):
     pass
 
 def profile(request):
-    pass
+    return render(request, 'profile.html')
 
 
 def post_index(request, post_id):

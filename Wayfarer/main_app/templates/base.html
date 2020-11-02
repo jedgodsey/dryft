@@ -18,9 +18,15 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Wayfarer</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Log In</a></li>
+          {%  if user.is_authenticated %}
+            {% if user.last_login == None %}
+              <li><a href="{% url 'profile'%}">Log In</a></li>
+            {% endif %}
+          {% else %}
+            <li><a href="{% url 'login'%}">Log In</a></li>
+          {% endif %}
+          <li><a href="{% url 'home'%}">Home</a></li>
+          <li><a href="{% url 'logout'%}">Logout</a></li>
         </ul>
       </div>
     </nav>
