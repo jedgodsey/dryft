@@ -15,8 +15,13 @@ Your Profile
             <h4 class = "profileName">{{profile.name}}</h1>
         </div>
     </section>
-    <section class = "Post Section">
+    <section class = "PostSection">
         <h2>{{profile.name}}'s Post</h2>
+        {% for post in posts %}
+            <div class="card small">
+                <h1>{{post}}</h1>
+            </div>
+        {% endfor%}
     </section>
     
 </div>

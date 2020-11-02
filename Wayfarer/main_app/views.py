@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Profile
+from .models import Profile, Post
 from .forms import ProfileForm , PostForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -19,17 +19,28 @@ def about(request):
 @login_required
 def profile(request):#also known as profile index
     profile = Profile.objects.get(user = request.user)
-    return render(request,'profile/index.html', {'profile':profile})
+    posts = Post.objects.filter(profile=profile)
+    context = {'profile': profile, 'posts':posts}
+    return render(request,'profile/index.html', context)
 
 def post_detail(request, post_id):
     pass
 
 @login_required
 def add_post(request):
+    error_message = ''
     if request.method == "POST":
-        print("It's a Post Yo")
-    context = {"post_form":PostForm()}
-    return render(request,"posts/newPost.html",context)
+        post_form = PostForm(request.POST, request.FILES)
+        print(post_form.errors)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            new_post.profile = Profile.objects.get(user = request.user)
+            new_post.save()
+            return redirect('profile')
+        else:
+            error_message = post_form.errors
+    context = {"post_form":PostForm(), 'error_message':error_message}
+    return render(request,"posts/new.html",context)
 
 def signup(request):
     error_message = ''

@@ -8,7 +8,7 @@ class ProfileForm(forms.ModelForm):
         fields = ('name',)
 
 class PostForm(forms.ModelForm):
-
+    image = forms.ImageField(required=False)
     class Meta:
         model = Post
         fields = ("title","content","date","image")
