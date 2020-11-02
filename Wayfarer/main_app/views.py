@@ -50,6 +50,24 @@ def add_post(request):
 
 def post_index(request, post_id):
     pass
+
+
+@login_required
+def post_edit(request, post_id):
+    post = Post.objects.get(id=post_id)
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, instance=post)
+        if  post_form.is_valid():
+            updated_post = post_form.save()
+            return redirect('post_detail', updated_post.id)
+    else:
+        form = PostForm(instance=post)
+        context = { 'form': form, 'post': post }
+        return render(request, 'posts/edit.html', context)
+
+
+
 @login_required
 def city_detail(request, city_id):
     posts = Post.objects.filter(city=city_id)
