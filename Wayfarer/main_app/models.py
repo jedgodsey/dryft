@@ -15,7 +15,7 @@ class City(models.Model):
 class Profile(models.Model):
     name = models.CharField(max_length = 100)
     current_city = models.ForeignKey(City, on_delete = models.CASCADE, null=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     profile_picture = models.ImageField(upload_to='images/profile_pics/', default = "images/profile_pics/profile_placeholder.jpg")
 
     def __str__(self):

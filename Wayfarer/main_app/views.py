@@ -18,6 +18,7 @@ def about(request):
 
 @login_required
 def profile(request):#also known as profile index
+    print(request.user)
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(profile=profile)
     context = {'profile': profile, 'posts':posts}
@@ -42,10 +43,8 @@ def add_post(request):
     context = {"post_form":PostForm(), 'error_message':error_message}
     return render(request,"posts/new.html",context)
 
-<<<<<<< HEAD
 def post_index(request, post_id):
     pass
-=======
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -68,4 +67,3 @@ def signup(request):
         'error_message': error_message
     }
     return render(request,'registration/signup.html', context)
->>>>>>> 05f55390939c29de246c73a62a96fcdf89e39518
