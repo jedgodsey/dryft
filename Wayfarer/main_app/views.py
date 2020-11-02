@@ -23,8 +23,13 @@ def profile(request):#also known as profile index
     context = {'profile': profile, 'posts':posts}
     return render(request,'profile/index.html', context)
 
+@login_required
 def post_detail(request, post_id):
-    pass
+    post = Post.objects.get(id=post_id)
+    # city= post.city
+    context = {'post':post}
+    # print(city)
+    return render(request,'post/detail.html', context)
 
 @login_required
 def add_post(request):
