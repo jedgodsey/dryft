@@ -17,11 +17,14 @@ Your Profile
     </section>
     <section class = "PostSection">
         <h2>{{profile.name}}'s Post</h2>
-        {% for post in posts %}
+        <div class = "allPost">
+            {% for post in posts %}
             <div class="card small">
                 <h1>{{post}}</h1>
             </div>
-        {% endfor%}
+            {% endfor%}
+        </div>
+       
     </section>
     
 </div>

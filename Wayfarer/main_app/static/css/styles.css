@@ -47,10 +47,18 @@ footer {
     width: 25em;
 }
 
+.PostSection{
+    display: flex;
+    flex-direction: column;
+}
+
+.allPost{
+    display: flex;
+}
+
 .profileMain .right{
     display:flex;
     align-items:center;
     justify-content: space-between;
-    
     width: 42em;
 }
