@@ -9,7 +9,7 @@ def edit_profile(request,profile_id):
     pass
 
 def about(request):
-    pass
+    return render(request, 'about.html')
 
 def profile(request):
     pass
