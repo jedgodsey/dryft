@@ -58,7 +58,7 @@ def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
 
     if request.method == 'POST':
-        post_form = PostForm(request.POST, instance=post)
+        post_form = PostForm(request.POST, request.FILES, instance=post)
         if  post_form.is_valid():
             updated_post = post_form.save()
             return redirect('post_detail', updated_post.id)
