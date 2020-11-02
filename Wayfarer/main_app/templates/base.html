@@ -1,16 +1,21 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CaseWorks - {% block title %}{% endblock %}</title>
+  <title>Wayfarer - {% block title %}{% endblock %}</title>
+  <!-- Materialize CSS CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+  <!-- Jquery CDN -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Materialize JS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
@@ -18,25 +23,29 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Wayfarer</a></li>
         </ul>
         <ul class="right">
-          {%  if user.is_authenticated %}
-            {% if user.last_login == None %}
-              <li><a href="{% url 'profile'%}">Log In</a></li>
-            {% endif %}
+          <li><a href="/">Home</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="#">Find Destination</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
-            <li><a href="{% url 'login'%}">Log In</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
-          <li><a href="{% url 'home'%}">Home</a></li>
-          <li><a href="{% url 'logout'%}">Logout</a></li>
         </ul>
       </div>
     </nav>
   </header>
-  <main class="container">
+
+  <main>
     {% block content %}
     {% endblock %}
   </main>
+
   <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2019 Wayfarer &nbsp;</div>
   </footer>
+  
+  <script src="{% static 'javascript/main.js' %}"></script>
 </body>
 </html>
