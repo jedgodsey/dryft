@@ -1,0 +1,56 @@
+[
+    {
+      "model": "main_app.City",
+      "pk": 1,
+      "fields": {
+        "name": "Alexandria",
+        "country": "Egypt",
+        "image": "images/alexandria.jpg"
+      }
+    },
+    {
+        "model": "main_app.City",
+        "pk": 2,
+        "fields": {
+          "name": "Istanbul",
+          "country": "Turkey",
+          "image": "images/istanbul.jpg"
+        }
+      },
+      {
+        "model": "main_app.City",
+        "pk": 3,
+        "fields": {
+          "name": "Machu Picchu",
+          "country": "Peru",
+          "image": "images/machupicchu.jpg"
+        }
+      },
+      {
+        "model": "main_app.City",
+        "pk": 4,
+        "fields": {
+          "name": "Monte Carlo",
+          "country": "Monaco",
+          "image": "images/montecarlo.jpg"
+        }
+      },
+      {
+        "model": "main_app.City",
+        "pk": 5,
+        "fields": {
+          "name": "Montreal",
+          "country": "Canada",
+          "image": "images/montreal.jpg"
+        }
+      },
+      {
+        "model": "main_app.City",
+        "pk": 6,
+        "fields": {
+          "name": "Seoul",
+          "country": "South Korea",
+          "image": "images/seoul.jpg"
+        }
+      }
+]

@@ -14,10 +14,11 @@ def edit_profile(request,profile_id):
     pass
 
 def about(request):
-    pass
+    return render(request, 'about.html')
 
 @login_required
 def profile(request):#also known as profile index
+    print(request.user)
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(profile=profile)
     context = {'profile': profile, 'posts':posts}
@@ -47,6 +48,8 @@ def add_post(request):
     context = {"post_form":PostForm(), 'error_message':error_message}
     return render(request,"posts/new.html",context)
 
+def post_index(request, post_id):
+    pass
 @login_required
 def city_detail(request, city_id):
     posts = Post.objects.filter(city=city_id)
