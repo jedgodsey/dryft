@@ -11,4 +11,8 @@ New Post
     {{form.as_p}}
     <button class="btn" type="submit">Edit Post</button>
 </form>
+<script>
+    const selectEl = document.getElementById('id_city');
+    M.FormSelect.init(id_city);
+</script>
 {% endblock %}
