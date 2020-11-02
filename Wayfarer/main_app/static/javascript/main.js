@@ -11,8 +11,4 @@ setInterval(()=>{
   
 // M.FormSelect.init(id_city);
 
-const selectEl = document.getElementById('id_current_city');
-  
-M.FormSelect.init(id_current_city);
-
 console.log("hello")
