@@ -11,6 +11,7 @@ Detail Post
 <p>Description: {{post.content}}</p>
 <p>Date: {{post.date}}</p>
 
+<a href="{% url 'post_delete' post.id %}" class="btn">Delete</a>
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
 
 {% endblock %}

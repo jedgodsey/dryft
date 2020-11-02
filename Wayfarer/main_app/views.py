@@ -67,6 +67,11 @@ def post_edit(request, post_id):
         return render(request, 'posts/edit.html', context)
 
 
+def post_delete(request, post_id):
+    Post.objects.get(id=post_id).delete()
+    return redirect('profile')
+
+
 
 @login_required
 def city_detail(request, city_id):
