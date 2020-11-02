@@ -49,9 +49,10 @@ def edit_profile(request,profile_id):
 @login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
+    profile = post.profile.id
+    author = Profile.objects.get(id=profile)
     # city= post.city
-    context = {'post':post}
-    # print(city)
+    context = {'post':post, 'author': author}
     return render(request,'posts/detail.html', context)
 
 @login_required
