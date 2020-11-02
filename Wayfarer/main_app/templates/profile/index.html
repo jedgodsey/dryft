@@ -12,16 +12,20 @@ Your Profile
         </div>
         <div class = "right">
             <img class = "profilePicture" src="{{profile.profile_picture.url}}" alt="ProfilePic">
-            <h4 class = "profileName">{{profile.name}}</h1>
+            <h3 class = "profileName">{{profile.name}}</h3>
         </div>
     </section>
     <section class = "PostSection">
-        <h2>{{profile.name}}'s Post</h2>
+        <h2>{{profile.name}}'s Post</h1>
         <div class = "allPost">
             {% for post in posts %}
-            <div class="card small">
-                <h1>{{post}}</h1>
+            <a href="{%url 'post_detail' post.id%}">
+            <div class="card large">
+                <h4>{{post}}</h4>
+                <img class = "postPreview" src="{{post.image.url}}" alt="PostPic">
+                <p>{{post.content}}</p>
             </div>
+            </a>
             {% endfor%}
         </div>
        

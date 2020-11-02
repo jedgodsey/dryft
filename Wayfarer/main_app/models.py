@@ -26,7 +26,8 @@ class Post(models.Model):
     title = models.CharField(max_length = 250)
     content = models.TextField(max_length = 1000)
     date = models.DateField(_("Date"), default=datetime.date.today)
-    profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
     image = models.ImageField(upload_to='images/post_pics/', null = True)
+    profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
+    city = models.ForeignKey(City, on_delete = models.CASCADE, null = True)
     def __str__(self):
         return self.title

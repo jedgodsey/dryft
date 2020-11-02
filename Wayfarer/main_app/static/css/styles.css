@@ -54,6 +54,16 @@ footer {
 
 .allPost{
     display: flex;
+    padding: 0px 2em;
+}
+
+.postPreview{
+    width: 100%;
+    height: auto;
+}
+
+.allPost .card{
+    margin: 1em 1.5em;
 }
 
 .profileMain .right{

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Profile, Post
+from .models import Profile, Post , City
 from .forms import ProfileForm , PostForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -23,8 +23,13 @@ def profile(request):#also known as profile index
     context = {'profile': profile, 'posts':posts}
     return render(request,'profile/index.html', context)
 
+@login_required
 def post_detail(request, post_id):
-    pass
+    post = Post.objects.get(id=post_id)
+    # city= post.city
+    context = {'post':post}
+    # print(city)
+    return render(request,'posts/detail.html', context)
 
 @login_required
 def add_post(request):
@@ -41,6 +46,14 @@ def add_post(request):
             error_message = post_form.errors
     context = {"post_form":PostForm(), 'error_message':error_message}
     return render(request,"posts/new.html",context)
+
+@login_required
+def city_detail(request, city_id):
+    posts = Post.objects.filter(city=city_id)
+    city = City.objects.get(id= city_id)
+    print(len(posts))
+    context = {'city':city, 'posts': posts}
+    return render(request,'cities/detail.html', context)
 
 def signup(request):
     error_message = ''
