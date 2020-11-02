@@ -1,9 +1,11 @@
-from django.urls import path
+from django.contrib import admin
+from django.urls import path  , include
 from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
+    
     path('profile/', views.profile, name='profile'),
     path('profile/<int:profile_id>/edit/', views.edit_profile, name='edit_profile'),
     path('post/new', views.add_post, name='add_post'),

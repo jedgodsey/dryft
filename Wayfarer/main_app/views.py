@@ -24,6 +24,28 @@ def profile(request):#also known as profile index
     context = {'profile': profile, 'posts':posts}
     return render(request,'profile/index.html', context)
 
+
+@login_required
+def edit_profile(request,profile_id):
+    profile = Profile.objects.get(user = request.user)
+    print(request.method)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,instance=profile)
+        if form.is_valid():
+            print("Is my form valid")
+            updated_profile = form.save()
+            print(updated_profile.id)
+            return redirect('profile')
+            
+    else:
+        print("I am in else .. why ?")
+        form = ProfileForm(instance=profile)
+        context = {
+        'profile': profile,
+        'form': form
+        }
+        return render(request,'profile/edit.html',context)
+
 @login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
