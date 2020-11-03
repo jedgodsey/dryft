@@ -1,16 +1,27 @@
+:root {
+    --dark: rgb(1,30,62);
+    --light: rbg(0,255,113);
+  }
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
 
+.nav-wrapper {
+    color: var(--light);
+    background-color: var(--dark);
+}
 main {
     flex: 1 0 auto;
+    color: var(--dark);
 }
 
-footer {
+.page-footer {
     padding-top: 0;
     text-align: right;
+    background-color: var(--dark);
 }
 
 .carousel.carousel-slider{
@@ -19,7 +30,7 @@ footer {
 
 .profileSection{
     display: flex;
-    background-color: azure;
+    background-color: var(--light);
     justify-content: space-around;
     align-items: center;
 }
