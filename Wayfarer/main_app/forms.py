@@ -1,11 +1,11 @@
 from django import forms
-from .models import Profile , Post
+from .models import Profile , Post , City
 
 class ProfileForm(forms.ModelForm):
-    
-    class Meta:
+    current_city = forms.ModelChoiceField(queryset=City.objects.all())
+    class Meta:      
         model = Profile
-        fields = ('name',)
+        fields = ("name","profile_picture","current_city")
 
 class PostForm(forms.ModelForm):
     class Meta:
