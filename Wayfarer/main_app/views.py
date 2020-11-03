@@ -28,13 +28,10 @@ def profile(request):#also known as profile index
 @login_required
 def edit_profile(request,profile_id):
     profile = Profile.objects.get(user = request.user)
-    print(request.method)
     if request.method == 'POST':
         form = ProfileForm(request.POST,request.FILES,instance=profile)
         if form.is_valid():
-            print(form)
             updated_profile = form.save()
-            print(updated_profile)
             return redirect('profile')
             
     else:
