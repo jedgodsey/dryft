@@ -7,16 +7,20 @@ Your Profile
 {% block content %}
 <div class = "profileMain">
     <section class = "profileSection">
-        <div class = "left">
+        <div>
             <a href="{% url 'add_post'%}" class = "btn">Add new Post</a>
         </div>
-        <div class = "right">
+        <div>
             <img class = "profilePicture" src="{{profile.profile_picture.url}}" alt="ProfilePic">
-            <h3 class = "profileName">{{profile.name}}</h3>
+            <div>
+                <h3 class = "profileName">{{profile.name}}</h3>
+                <h4>Current City: {{profile.current_city}}</h4>
+                <h4>Member since: {{current_user.date_joined}}</h4>
+            </div>
         </div>
     </section>
     <section class = "PostSection">
-        <h2>{{profile.name}}'s Post</h1>
+        <h2>{{profile.name}}'s Posts</h1>
         <div class = "allPost">
             {% for post in posts %}
             <a href="{%url 'post_detail' post.id%}">
@@ -26,11 +30,15 @@ Your Profile
                 <p>{{post.content}}</p>
             </div>
             </a>
-            {% endfor%}
+            {% endfor %}
         </div>
-       
+        <div class = "top">
+            <a href="{% url 'edit_profile' profile.id %}" class = "btn">Edit Profile</a>
+        </div> 
     </section>
     
 </div>
 
 {% endblock %}
+
+name, the current city they have set in their profile, and their join date.
