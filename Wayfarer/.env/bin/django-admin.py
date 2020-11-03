@@ -1,4 +1,4 @@
-#!/Users/sravanthiedam/sei/deliverables/project-2-1020/Wayfarer/.env/bin/python3
+#!/Users/jedgodsey/sei/projects/project-2-1020/Wayfarer/.env/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
