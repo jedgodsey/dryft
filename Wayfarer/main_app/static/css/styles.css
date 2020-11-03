@@ -85,5 +85,5 @@ main {
 }
 
 .btn {
-    color: var(--light);
+    background-color: var(--light);
 }
