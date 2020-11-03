@@ -30,10 +30,11 @@ def edit_profile(request,profile_id):
     profile = Profile.objects.get(user = request.user)
     print(request.method)
     if request.method == 'POST':
-        form = ProfileForm(request.POST,instance=profile)
+        form = ProfileForm(request.POST,request.FILES,instance=profile)
         if form.is_valid():
+            print(form)
             updated_profile = form.save()
-            print(updated_profile.id)
+            print(updated_profile)
             return redirect('profile')
             
     else:
