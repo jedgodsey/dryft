@@ -11,8 +11,8 @@ Detail Post
 <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
 <p>Description: {{post.content}}</p>
 <p>Date: {{post.date}}</p>
-
+{% if modifiable %}
 <a href="{% url 'post_delete' post.id %}" class="btn">Delete</a>
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
-
+{% endif %}
 {% endblock %}

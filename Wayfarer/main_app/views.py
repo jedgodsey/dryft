@@ -10,8 +10,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'home.html')
 
-def edit_profile(request,profile_id):
-    pass
 
 def about(request):
     return render(request, 'about.html')
@@ -48,7 +46,8 @@ def post_detail(request, post_id):
     profile = post.profile.id
     author = Profile.objects.get(id=profile)
     # city= post.city
-    context = {'post':post, 'author': author}
+    current_user = request.user
+    context = {'post':post, 'author': author, 'modifiable':(current_user == author.user) }
     return render(request,'posts/detail.html', context)
 
 @login_required
