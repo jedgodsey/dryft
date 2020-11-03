@@ -83,7 +83,3 @@ main {
     justify-content: space-between;
     width: 42em;
 }
-
-.btn {
-    background-color: var(--light);
-}
