@@ -3,7 +3,7 @@
 
   <h1>Edit Profile</h1>
 
-  <form method="POST">
+  <form enctype="multipart/form-data" method="POST">
 
     <!-- CSRF TOKEN - Cross Site Request Forgery -->
     {% csrf_token %}
@@ -16,7 +16,7 @@
 
 <script>
     const selectEl = document.getElementById('id_current_city');
-  
     M.FormSelect.init(id_current_city);
- </script>
+</script>
+
 {% endblock %}
