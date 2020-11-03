@@ -28,7 +28,9 @@ Your Profile
             </a>
             {% endfor%}
         </div>
-       
+        <div class = "top">
+            <a href="{% url 'edit_profile' profile.id %}" class = "btn">Edit Profile</a>
+        </div> 
     </section>
     
 </div>
