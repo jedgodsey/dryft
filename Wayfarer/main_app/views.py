@@ -10,8 +10,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'home.html')
 
-def edit_profile(request,profile_id):
-    pass
 
 def about(request):
     return render(request, 'about.html')
@@ -58,7 +56,8 @@ def post_detail(request, post_id):
     profile = post.profile.id
     author = Profile.objects.get(id=profile)
     # city= post.city
-    context = {'post':post, 'author': author}
+    current_user = request.user
+    context = {'post':post, 'author': author, 'modifiable':(current_user == author.user) }
     return render(request,'posts/detail.html', context)
 
 @login_required
@@ -84,7 +83,9 @@ def post_index(request, post_id):
 @login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
-
+    print(f'Profile: {post.profile.user}')
+    if(post.profile.user != request.user):
+        return render(request,'404.html')
     if request.method == 'POST':
         post_form = PostForm(request.POST, request.FILES, instance=post)
         if  post_form.is_valid():
@@ -96,6 +97,7 @@ def post_edit(request, post_id):
         return render(request, 'posts/edit.html', context)
 
 
+@login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
     return redirect('profile')
@@ -132,3 +134,13 @@ def signup(request):
         'error_message': error_message
     }
     return render(request,'registration/signup.html', context)
+
+
+@login_required
+def add_post_inside_city(request, city_id):
+    error_message = ''
+    city = City.objects.get(id=city_id)
+    hideCity = True
+    context = {"post_form":PostForm(initial={'city': city}), 'error_message':error_message, 'city':city}
+    print("HIHIIIIIT")
+    return render(request,"posts/new.html",context)
