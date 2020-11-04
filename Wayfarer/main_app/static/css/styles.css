@@ -1,7 +1,31 @@
 :root {
     --dark: rgb(1,30,62);
     --light: rbg(0,255,113);
-  }
+}
+
+@font-face {
+    font-family: 'base';
+    src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'bold';
+    src: local('replica-bold'), url('../fonts/replica-bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'light';
+    src: local('replica-light'), url('../fonts/replica-light.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'italic';
+    src: local('replica-italic'), url('../fonts/replica-italic.ttf') format("truetype");
+}
+
+html {
+    font-family: 'base', Trebuchet, sans-serif;
+}
 
 body {
     display: flex;
@@ -16,6 +40,16 @@ body {
 main {
     flex: 1 0 auto;
     color: var(--dark);
+}
+
+.small-img{
+    width:100px;
+    height: 100px;
+}
+
+.small-img img{
+    width:50%;
+    height: auto
 }
 
 .page-footer {
@@ -83,3 +117,5 @@ main {
     justify-content: space-between;
     width: 42em;
 }
+
+
