@@ -4,6 +4,7 @@
       "pk": 1,
       "fields": {
         "name": "Bryan Romero",
+        "email": "bromero@wayfarer.com",
         "current_city": 1,
         "profile_picture": "images/bryan.png"
       }
@@ -13,6 +14,7 @@
         "pk": 2,
         "fields": {
           "name": "Jed Godsey",
+          "email": "jgodsey@wayfarer.com",
           "current_city": 2,
           "profile_picture": "images/jed.jpg"
         }
@@ -22,6 +24,7 @@
         "pk": 3,
         "fields": {
           "name": "Josh Pardike",
+          "email": "jpardike@wayfarer.com",
           "current_city": 3,
           "profile_picture": "images/josh.jpg"
         }
@@ -31,6 +34,7 @@
         "pk": 4,
         "fields": {
           "name": "Sridar Edam",
+          "email": "sedam@wayfarer.com",
           "current_city": 4,
           "profile_picture": "images/sridar.jpg"
         }
