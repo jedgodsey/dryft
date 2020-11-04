@@ -42,6 +42,16 @@ main {
     color: var(--dark);
 }
 
+.small-img{
+    width:100px;
+    height: 100px;
+}
+
+.small-img img{
+    width:50%;
+    height: auto
+}
+
 .page-footer {
     padding-top: 0;
     text-align: right;
@@ -107,3 +117,5 @@ main {
     justify-content: space-between;
     width: 42em;
 }
+
+
