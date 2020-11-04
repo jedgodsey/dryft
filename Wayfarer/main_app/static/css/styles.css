@@ -1,18 +1,53 @@
 :root {
     --dark: rgb(1,30,62);
+    --light: rgb(0,255,113);
+    --white: rgb(255, 255, 255);
     --light: rbg(0,255,113);
-  }
+}
+
+@font-face {
+    font-family: 'base';
+    src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'bold';
+    src: local('replica-bold'), url('../fonts/replica-bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'light';
+    src: local('replica-light'), url('../fonts/replica-light.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'italic';
+    src: local('replica-italic'), url('../fonts/replica-italic.ttf') format("truetype");
+}
+
+html {
+    font-family: 'base', Trebuchet, sans-serif;
+}
 
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: var(--white);
 }
 
 .nav-wrapper {
-    color: var(--light);
     background-color: var(--dark);
 }
+
+nav .brand-logo {
+    color: var(--white);
+}
+
+nav ul a {
+    color: var(--white);
+}
+
 main {
     flex: 1 0 auto;
     color: var(--dark);
@@ -31,6 +66,7 @@ main {
 .page-footer {
     padding-top: 0;
     text-align: right;
+    color: var(--white);
     background-color: var(--dark);
 }
 

@@ -8,7 +8,7 @@ Detail City
 <h1>City: {{city}}</h1>
 <img class = "postPreview" src="{{city.image.url}}" alt="PostPic">
 <h2>Country: {{city.country}}</h2>
-<a href="{% url 'add_post'%}" class = "btn">Add new Post</a>
+<a href="{% url 'add_post_inside_city' city.id %}" class = "btn">Add new Post</a>
 <section class = "PostSection">
     <div class = "allPost">
         {% for post in posts %}
