@@ -11,3 +11,10 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ("title","content","date","city","image",)
+
+class CityForm(forms.ModelForm):
+    # cities = forms.ModelChoiceField(queryset=City.objects.all())
+    class Meta:
+        model = City
+        fields = ("name","country")
+
