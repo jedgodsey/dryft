@@ -23,7 +23,7 @@ class Profile(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length = 250)
+    title = models.CharField(max_length = 200)
     content = models.TextField(max_length = 1000)
     date = models.DateField(_("Date"), default=datetime.date.today)
     image = models.ImageField(upload_to='images/post_pics/', null = True)
