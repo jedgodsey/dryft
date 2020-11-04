@@ -64,8 +64,8 @@ def add_post(request):
             return redirect('profile')
         else:
             error_message = post_form.errors
-    context = {"post_form":PostForm(), 'error_message':error_message}
-    return render(request,"posts/new.html",context)
+    context = {"post_form": PostForm(), 'error_message': error_message}
+    return render(request, "posts/new.html", context)
 
 def post_index(request, post_id):
     pass
