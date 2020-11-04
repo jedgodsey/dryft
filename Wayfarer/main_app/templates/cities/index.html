@@ -10,7 +10,7 @@ City Index
             <div class="row card">
             {% for city in cities %}  
                     <div class="col s12 m6 14">
-                        <img class = "materialboxed responsive-img card" src="{{city.image.url}}" alt="{{city.name}}"/>
+                        <a href={%url 'city_detail' city.id %}><img class = "materialbox responsive-img card" src="{{city.image.url}}" alt="{{city.name}}"/></a>
                         <br>{{city.name}}
                     </div>
             {% endfor %}
@@ -19,7 +19,7 @@ City Index
 
 <script>
     $(document).ready(function({
-        $('.materialboxed').materialbox();   
+        $('.materialbox').materialbox();   
     });
 </script>
 {% endblock%}   
