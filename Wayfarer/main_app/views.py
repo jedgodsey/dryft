@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Profile, Post , City
-from .forms import ProfileForm , PostForm
+from .forms import ProfileForm , PostForm , CityForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -41,6 +41,16 @@ def edit_profile(request,profile_id):
         return render(request,'profile/edit.html',context)
 
 @login_required
+def city_index(request):
+    all_cities = City.objects.all()
+    form = CityForm()
+    context = {
+        'form' : form,
+        'cities': all_cities
+    }
+    return render(request,'cities/index.html',context)
+
+@login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     profile = post.profile.id
@@ -63,8 +73,8 @@ def add_post(request):
             return redirect('profile')
         else:
             error_message = post_form.errors
-    context = {"post_form":PostForm(), 'error_message':error_message}
-    return render(request,"posts/new.html",context)
+    context = {"post_form": PostForm(), 'error_message': error_message}
+    return render(request, "posts/new.html", context)
 
 def post_index(request, post_id):
     pass

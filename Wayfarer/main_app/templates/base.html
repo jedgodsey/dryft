@@ -9,12 +9,13 @@
   <!-- Materialize CSS CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  {% comment %} Materilaize JS CDN {% endcomment %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <!-- Jquery CDN -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
@@ -25,7 +26,7 @@
           <li><a href="/">Home</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="#">Find Destination</a></li>
+            <li><a href="{% url 'cities' %}">Destinations</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -44,7 +45,7 @@
   <footer class="page-footer">
     <div class="right">
       <h5>WayFarer</h5>
-      All Rights Reserved, &copy; 20209 Wayfarer &nbsp;</div>
+      All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</div>
   </footer>
   
   <script src="{% static 'javascript/main.js' %}"></script>
