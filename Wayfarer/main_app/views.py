@@ -73,7 +73,9 @@ def post_index(request, post_id):
 @login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
-
+    print(f'Profile: {post.profile.user}')
+    if(post.profile.user != request.user):
+        return render(request,'404.html')
     if request.method == 'POST':
         post_form = PostForm(request.POST, request.FILES, instance=post)
         if  post_form.is_valid():
@@ -85,6 +87,7 @@ def post_edit(request, post_id):
         return render(request, 'posts/edit.html', context)
 
 
+@login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
     return redirect('profile')
@@ -121,3 +124,13 @@ def signup(request):
         'error_message': error_message
     }
     return render(request,'registration/signup.html', context)
+
+
+@login_required
+def add_post_inside_city(request, city_id):
+    error_message = ''
+    city = City.objects.get(id=city_id)
+    hideCity = True
+    context = {"post_form":PostForm(initial={'city': city}), 'error_message':error_message, 'city':city}
+    print("HIHIIIIIT")
+    return render(request,"posts/new.html",context)
