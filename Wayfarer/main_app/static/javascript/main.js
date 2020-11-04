@@ -7,4 +7,6 @@ setInterval(()=>{
   $('.carousel').carousel('next');
 },6000)
 
-console.log("hello")
+// const selectEl = document.getElementById('id_city');
+  
+// M.FormSelect.init(id_city);
