@@ -64,10 +64,14 @@ main {
 }
 
 .page-footer {
-    padding-top: 0;
+    padding: 15px;
     text-align: right;
     color: var(--white);
     background-color: var(--dark);
+}
+
+.right h5 {
+    margin: 0 0 5px 0
 }
 
 .carousel.carousel-slider{
@@ -96,8 +100,13 @@ main {
 
 .lowerHomeSection{
     margin-top: 2em;
+    margin-bottom: 1.5em;
     display: flex;
     justify-content: space-around;
+}
+
+.lowerHomeSection .card {
+    padding: 10px;
 }
 
 .card{
