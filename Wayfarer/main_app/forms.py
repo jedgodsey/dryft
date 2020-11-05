@@ -16,7 +16,7 @@ class CityForm(forms.ModelForm):
     # cities = forms.ModelChoiceField(queryset=City.objects.all())
     class Meta:
         model = City
-        fields = ("name","country","image")
+        fields = ("name","country")
 
 class CommentForm(forms.ModelForm):
     
