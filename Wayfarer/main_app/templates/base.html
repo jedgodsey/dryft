@@ -17,20 +17,20 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <header class="navbar-fixed">
-    <nav>
+    <nav class="nav-holder">
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Wayfarer</a></li>
+          <li class="logo-list"><a href="/" class="left brand-logo">&nbsp;&nbsp;<img src="media/images/logos/dryft-logo-GREEN.svg" class="logo">&nbsp;<sup>DRYFT</sup></a></li>
         </ul>
-        <ul class="right">
+        <ul class="right nav-holder">
           <li><a href="/">Home</a></li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'cities' %}">Destinations</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li class="nav-holder"><a href="{% url 'profile' %}">Profile</a></li>
+            <li class="nav-holder"><a href="{% url 'cities' %}">Destinations</a></li>
+            <li class="nav-holder"><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li class="nav-holder"><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li class="nav-holder"><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
         </ul>
       </div>
@@ -44,8 +44,8 @@
 
   <footer class="page-footer">
     <div class="right">
-      <h5>WayFarer</h5>
-      All Rights Reserved, &copy; 2020 Wayfarer</div>
+      <h5>DRYFT</h5>
+      All Rights Reserved, &copy; 2020 Dryft, Inc.</div>
   </footer>
   
   <script src="{% static 'javascript/main.js' %}"></script>
