@@ -110,7 +110,7 @@ main {
     background-color: var(--light);
     justify-content: space-evenly;
     align-items: center;
-    height: 75vh;
+    height: 40vh;
 }
 
 .profile-column-one {
@@ -163,6 +163,9 @@ main {
 
 .allPost .card{
     margin: 1em 1.5em;
+    padding: 10px;
+    width: 20%;
+    height: 100%;
 }
 
 .profileMain .right{
