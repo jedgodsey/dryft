@@ -1,4 +1,4 @@
-
+main_app/__pycache__/models.cpython-39.pyc
 # Created by https://www.toptal.com/developers/gitignore/api/django,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python
 
@@ -7,6 +7,7 @@
 *.pot
 *.pyc
 __pycache__/
+media
 main_app/__pycache__/
 local_settings.py
 db.sqlite3
