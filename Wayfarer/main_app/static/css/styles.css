@@ -3,7 +3,9 @@
     --light: rgb(0,255,113);
     --white: rgb(255, 255, 255);
 }
-
+a{
+    color: var(--dark);
+}
 @font-face {
     font-family: 'base';
     src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
@@ -30,7 +32,7 @@ html {
 
 body {
     display: flex;
-    min-height: 100vh;
+    min-height: 120vh;
     flex-direction: column;
     background-color: var(--white);
 }
@@ -111,7 +113,7 @@ main {
     background-color: var(--light);
     justify-content: space-evenly;
     align-items: center;
-    height: 75vh;
+    height: 30vh;
 }
 
 .profile-column-one {
@@ -127,6 +129,7 @@ main {
 .profilePicture{
     width: 10em;
     height: 10em;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -157,22 +160,48 @@ main {
     padding: 0px 2em;
 }
 
-.postPreview{
-    width: 100%;
-    height: auto;
-}
 
 .allPost .card{
+    display: flex;
+    flex-direction: column;
     margin: 1em 1.5em;
+    padding: 1%;
+    border-radius: 5%;
+    width: 80%;
+    height: 100%;
 }
-
+.postPreview{
+    width: 90%;
+    height: auto;
+    margin: 15px auto 10px ;
+    align-self: center; 
+    border-radius: 1%;
+    border-style: solid;
+}
+.postText{
+    margin-left: 10px;
+}
 .profileMain .right{
     display:flex;
     align-items:center;
     justify-content: space-between;
     width: 42em;
 }
+.card h4{
+    margin-top: 0px;
+}
 
+.postHeader{
+    display: flex;
+}
+
+.postBody{
+    padding: 20px;
+}
+.postPicture{
+    width: auto;
+    height: auto;
+}
 /* image/frame styling */
 .big-frame {
     height: 100%;
@@ -213,4 +242,10 @@ sup {
 
 .nav-holder li {
     height: 90px;
+}
+nav a{
+    height: 100%;
+}
+.logo-list{
+    display: flex;
 }

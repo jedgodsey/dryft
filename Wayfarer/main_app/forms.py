@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile , Post , City
+from .models import Profile , Post , City , Comment
 
 class ProfileForm(forms.ModelForm):
     current_city = forms.ModelChoiceField(queryset=City.objects.all())
@@ -16,4 +16,10 @@ class CityForm(forms.ModelForm):
     # cities = forms.ModelChoiceField(queryset=City.objects.all())
     class Meta:
         model = City
-        fields = ("name","country", "image")
+        fields = ("name","country")
+
+class CommentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Comment
+        fields = ("comment",)
