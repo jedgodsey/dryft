@@ -2,7 +2,6 @@
     --dark: rgb(1,30,62);
     --light: rgb(0,255,113);
     --white: rgb(255, 255, 255);
-    --light: rbg(0,255,113);
 }
 a{
     color: var(--dark);
@@ -40,10 +39,12 @@ body {
 
 .nav-wrapper {
     background-color: var(--dark);
+    height: 90px;
 }
 
 nav .brand-logo {
     color: var(--white);
+    font-family: 'bold';
 }
 
 nav ul a {
@@ -200,4 +201,45 @@ main {
 .postPicture{
     width: auto;
     height: auto;
+}
+/* image/frame styling */
+.big-frame {
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.big-photo {
+    min-width: 100%;
+    min-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+/* logo styles */
+.logo-list {
+    display: flex;
+    white-space: nowrap;
+    line-height: 90px;
+}
+
+.logo-list img {
+    max-height: 80px;
+}
+
+sup {
+    font-size: 40px;
+}
+
+/* navbar styles */
+.navbar-fixed {
+    height: 90px;
+}
+
+.nav-holder {
+    height: 90px;
+}
+
+.nav-holder li {
+    height: 90px;
 }
