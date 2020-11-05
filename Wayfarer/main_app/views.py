@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Profile, Post , City
-from .forms import ProfileForm , PostForm , CityForm
+from .models import Profile, Post , City, Comment
+from .forms import ProfileForm , PostForm , CityForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -57,7 +57,14 @@ def post_detail(request, post_id):
     author = Profile.objects.get(id=profile)
     # city= post.city
     current_user = request.user
-    context = {'post':post, 'author': author, 'modifiable':(current_user == author.user) }
+    comments = Comment.objects.filter(post=post)
+    context = {
+        'post':post, 
+        'author': author, 
+        'modifiable':(current_user == author.user), 
+        'comment_form': CommentForm(), 
+        'comments': comments,
+        'current_user': current_user}
     return render(request,'posts/detail.html', context)
 
 @login_required
@@ -176,3 +183,14 @@ def add_city(request):
             error_message = city_form.errors
     context = {"form":CityForm(), 'error_message':error_message}
     return render(request,"cities/new.html",context)
+
+
+def add_comment(request, post_id):
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.profile = Profile.objects.get(user = request.user)
+            new_comment.post = Post.objects.get(id = post_id)
+            new_comment.save()
+            return redirect('post_detail' , post_id)

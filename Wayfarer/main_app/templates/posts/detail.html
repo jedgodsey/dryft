@@ -16,7 +16,7 @@ Detail Post
     <p>Description: {{post.content}}</p>
     <p>Date: {{post.date}}</p>
     {% if modifiable %}
-    <button data-target="modal1" class="btn modal-trigger">Delete</button>
+    <button data-target="modal1" class="btn red modal-trigger">Delete</button>
     
     <div id="modal1" class="modal">
         <div class="modal-content">
@@ -29,10 +29,32 @@ Detail Post
         </div>
     </div>
     
-    <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
+    <a href="{% url 'post_edit' post.id %}" class="btn  blue accent-3">Edit</a>
     {% endif %}
-</div>
+    <br>
+    <h5>All Comments</h5>
+    <div class = "postComments">
+        {% for comment in comments %}
+        <h3>
+            {{comment}} by {{comment.profile.user.username}}
+            {% if comment.profile.user == current_user %}
+                <a href="#" class="btn red">Delete</a>
+            {% endif %}
+        </h3>
+        {% endfor%}
+    </div>
+    <form action="{% url 'add_comment' post.id%}" method="POST">
 
+        <!-- CSRF TOKEN - Cross Site Request Forgery -->
+        {% csrf_token %}
+    
+        {{ comment_form.as_p }}
+    
+        <button class="btn  blue accent-3" type="submit"> Add Comment</button>
+    
+    </form>
+   
+</div>
 <script>
 
 $(document).ready(function(){
