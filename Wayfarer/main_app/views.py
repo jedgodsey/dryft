@@ -99,7 +99,10 @@ def post_edit(request, post_id):
 
 @login_required
 def post_delete(request, post_id):
-    Post.objects.get(id=post_id).delete()
+    post = Post.objects.get(id=post_id)
+    if(post.profile.user != request.user):
+        return render(request,'404.html')
+    post.delete()
     return redirect('profile')
 
 
@@ -144,5 +147,17 @@ def add_post_inside_city(request, city_id):
     city = City.objects.get(id=city_id)
     hideCity = True
     context = {"post_form":PostForm(initial={'city': city}), 'error_message':error_message, 'city':city}
-    print("HIHIIIIIT")
     return render(request,"posts/new.html",context)
+
+
+@login_required
+def map(request):
+    return render(request, 'map.html')
+
+
+@login_required
+def add_city(request):
+    if request.method == 'POST':
+        print("hello")
+        return HttpResponse("You are trying to add a city")
+    pass

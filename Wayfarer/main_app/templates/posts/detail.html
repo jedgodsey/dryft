@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% block title %}
@@ -13,11 +12,7 @@ Detail Post
 <p>Description: {{post.content}}</p>
 <p>Date: {{post.date}}</p>
 {% if modifiable %}
-<a href="{% url 'post_delete' post.id %}" class="btn">Delete</a>
-<a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
-{% endif %}
-
-<button data-target="modal1" class="btn modal-trigger">Modal</button>
+<button data-target="modal1" class="btn modal-trigger">Delete</button>
 
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -25,14 +20,15 @@ Detail Post
         <p>You are about to delete this post! Would you like to continue?</p>
     </div>
         <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Disagree</a>
-        <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+        <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
     </div>
 </div>
 
 
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
 
+{% endif %}
 <script>
 
 $(document).ready(function(){
