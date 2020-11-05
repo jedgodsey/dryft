@@ -14,6 +14,7 @@ class City(models.Model):
 
 class Profile(models.Model):
     name = models.CharField(max_length = 100)
+    email = models.EmailField(max_length = 200, null=True)
     current_city = models.ForeignKey(City, on_delete = models.CASCADE, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     profile_picture = models.ImageField(upload_to='images/profile_pics/', default='images/profile_pics/place_holder.jpg' , null = True)
@@ -23,7 +24,7 @@ class Profile(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length = 250)
+    title = models.CharField(max_length = 200)
     content = models.TextField(max_length = 1000)
     date = models.DateField(_("Date"), default=datetime.date.today)
     image = models.ImageField(upload_to='images/post_pics/', null = True)
