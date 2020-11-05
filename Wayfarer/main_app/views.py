@@ -106,9 +106,8 @@ def post_delete(request, post_id):
 
 @login_required
 def city_detail(request, city_id):
-    posts = Post.objects.filter(city=city_id)
+    posts = Post.objects.filter(city=city_id).order_by('-date')
     city = City.objects.get(id= city_id)
-    print(len(posts))
     context = {'city':city, 'posts': posts}
     return render(request,'cities/detail.html', context)
 
@@ -141,8 +140,17 @@ def signup(request):
 @login_required
 def add_post_inside_city(request, city_id):
     error_message = ''
+    if request.method == "POST":
+        post_form = PostForm(request.POST, request.FILES)
+        print(post_form.errors)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            new_post.profile = Profile.objects.get(user = request.user)
+            new_post.save()
+            return redirect('city_detail' , city_id)
+        else:
+            error_message = post_form.errors
     city = City.objects.get(id=city_id)
     hideCity = True
     context = {"post_form":PostForm(initial={'city': city}), 'error_message':error_message, 'city':city}
-    print("HIHIIIIIT")
     return render(request,"posts/new.html",context)

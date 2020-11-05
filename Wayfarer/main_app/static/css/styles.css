@@ -53,14 +53,15 @@ main {
     color: var(--dark);
 }
 
-.small-img{
-    width:100px;
-    height: 100px;
+.row div{
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #ffff;
+    line-height: 60px
 }
 
-.small-img img{
-    width:50%;
-    height: auto
+.row{
+    margin: 40px auto;
 }
 
 .page-footer {
