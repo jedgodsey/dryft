@@ -167,7 +167,7 @@ def add_post_inside_city(request, city_id):
 
 @login_required
 def map(request):
-    return render(request, 'map.html')
+    return render(request, 'map.html',{'form':CityForm()})
 
 
 @login_required
