@@ -14,5 +14,10 @@ New Post
 <script>
     const selectEl = document.getElementById('id_city');
     M.FormSelect.init(id_city);
+    const dateEl = document.getElementById('id_date');
+    M.Datepicker.init(dateEl, {
+        format: 'yyyy-mm-dd',
+        autoClose: true
+    }); 
 </script>
 {% endblock %}
