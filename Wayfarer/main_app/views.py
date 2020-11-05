@@ -154,7 +154,6 @@ def add_post_inside_city(request, city_id):
         else:
             error_message = post_form.errors
     city = City.objects.get(id=city_id)
-    hideCity = True
     context = {"post_form":PostForm(initial={'city': city}), 'error_message':error_message, 'city':city}
     return render(request,"posts/new.html",context)
 
@@ -166,7 +165,14 @@ def map(request):
 
 @login_required
 def add_city(request):
+    error_message = ''
+
     if request.method == 'POST':
-        print("hello")
-        return HttpResponse("You are trying to add a city")
-    pass
+        city_form = CityForm(request.POST, request.FILES)
+        if city_form.is_valid():
+            new_city = city_form.save()
+            return redirect('city_detail' , new_city.id)
+        else:
+            error_message = city_form.errors
+    context = {"form":CityForm(), 'error_message':error_message}
+    return render(request,"cities/new.html",context)
