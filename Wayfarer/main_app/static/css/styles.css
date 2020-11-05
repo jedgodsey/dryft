@@ -183,6 +183,8 @@ main {
 .big-photo {
     min-width: 100%;
     min-height: 100%;
+    display: block;
+    margin: auto;
 }
 
 /* logo styles */
@@ -196,6 +198,11 @@ main {
     max-height: 80px;
 }
 
+sup {
+    font-size: 40px;
+}
+
+/* navbar styles */
 .navbar-fixed {
     height: 90px;
 }
@@ -206,8 +213,4 @@ main {
 
 .nav-holder li {
     height: 90px;
-}
-
-sup {
-    font-size: 40px;
 }
