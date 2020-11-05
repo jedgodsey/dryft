@@ -8,16 +8,13 @@ Detail City
 <h3 class="flow-text center">{{city}} , {{city.country}} </h3>
 
     <div class="container">
-        <div class="row card"> 
-            <div class="col s12 m6 14" width="1000">
+        <div class="row card" width="10"> 
+            <div class="col s12 m6 25" width="110">
                 <img class = "materialbox responsive-img card center" src="{{city.image.url}}" width="100%" />
             </div>
         </div>
-    </div>  
-
-
-
-
+    </div>
+    
         {% for post in posts %}
         <a href="{%url 'post_detail' post.id%}">
         <div class = "container">

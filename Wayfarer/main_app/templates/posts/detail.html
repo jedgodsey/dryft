@@ -6,12 +6,18 @@ Detail Post
 
 {% block content %}
 <h1>{{post}}</h1>
-<img src="{{author.profile_picture.url}}" alt="ProfilePic">
-<h4>{{author.name}}</h4>
-<img class = "postPreview" src="{{post.image.url}}" alt="PostPic">
-<a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
-<p>Description: {{post.content}}</p>
-<p>Date: {{post.date}}</p>
+<div class="container">
+        <div class="row card">           
+                <img class="profilePicture materialbox responsive-img" src="{{author.profile_picture.url}}" alt="ProfilePic">
+                <h4>{{author.name}}</h4>
+                <img class = "postPreview materialbox responsive-img" src="{{post.image.url}}" alt="PostPic">
+                <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
+                {{post.content}}
+                {{post.date}}
+        </div>
+    </div> 
+
+
 {% if modifiable %}
 <button data-target="modal1" class="btn modal-trigger">Delete</button>
 
@@ -29,7 +35,7 @@ Detail Post
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
 {% endif %}
 
-{% endif %}
+{% endblock %}
 <script>
 
 $(document).ready(function(){

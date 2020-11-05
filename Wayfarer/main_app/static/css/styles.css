@@ -61,7 +61,18 @@ main {
 }
 
 .row{
-    margin: 40px auto;
+    margin: 20px auto;
+}
+
+.col div{
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #ffff;
+    line-height: 60px
+}
+
+.col{
+    margin: 20px auto;
 }
 
 .page-footer {

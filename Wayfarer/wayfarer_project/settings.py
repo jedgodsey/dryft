@@ -78,7 +78,7 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wayfarer_db',
+        'NAME': 'wayfarer',
     }
 }
 
