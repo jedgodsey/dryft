@@ -43,14 +43,7 @@ Detail Post
         </h3>
         {% endfor%}
     </div>
-<<<<<<< HEAD
     <form action="{% url 'add_comment' post.id%}" method="POST">
-=======
-</div>
-
-<a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
-
->>>>>>> submaster
 
         <!-- CSRF TOKEN - Cross Site Request Forgery -->
         {% csrf_token %}
@@ -70,8 +63,4 @@ $(document).ready(function(){
 });
 
 </script>
-<<<<<<< HEAD
-=======
-
->>>>>>> submaster
 {% endblock %}
