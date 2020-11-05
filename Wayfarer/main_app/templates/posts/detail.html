@@ -7,6 +7,7 @@ Detail Post
 {% block content %}
 <h1>{{post}}</h1>
 <img src="{{author.profile_picture.url}}" alt="ProfilePic">
+<h4>{{author.name}}</h4>
 <img class = "postPreview" src="{{post.image.url}}" alt="PostPic">
 <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
 <p>Description: {{post.content}}</p>
@@ -21,20 +22,19 @@ Detail Post
     </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
-        <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+            <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
     </div>
 </div>
 
-
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
+{% endif %}
 
 {% endif %}
 <script>
 
 $(document).ready(function(){
     $('.modal').modal();
+    $('.materialbox').materialbox();
 });
 
 </script>
-
-{% endblock %}

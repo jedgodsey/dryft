@@ -53,40 +53,51 @@ main {
     color: var(--dark);
 }
 
-.small-img{
-    width:100px;
-    height: 100px;
+.row div{
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #ffff;
+    line-height: 60px
 }
 
-.small-img img{
-    width:50%;
-    height: auto
+.row{
+    margin: 40px auto;
 }
 
 .page-footer {
-    padding-top: 0;
+    padding: 15px;
     text-align: right;
     color: var(--white);
     background-color: var(--dark);
+}
+
+.right h5 {
+    margin: 0 0 5px 0;
 }
 
 .carousel.carousel-slider{
     height: 500px ;
 }
 
-.profileSection{
+.lowerHomeSection{
+    margin-top: 2em;
+    margin-bottom: 1.5em;
     display: flex;
-    background-color: var(--light);
     justify-content: space-around;
-    align-items: center;
 }
-.profilePicture{
-    width: 10em;
-    height: 10em;
-    border-radius: 50%;
+
+.lowerHomeSection .card {
+    padding: 15px;
+    width: 25em;
+    height: 100%;
 }
-.profileName{
-    display:inline-block; 
+
+.card h3 {
+    margin: 20px 0;
+}
+
+.card p {
+    margin: 0;
 }
 
 .profileMain {
@@ -94,19 +105,50 @@ main {
     flex-direction: column;
 }
 
-.lowerHomeSection{
-    margin-top: 2em;
+.profileSection {
     display: flex;
-    justify-content: space-around;
+    background-color: var(--light);
+    justify-content: space-evenly;
+    align-items: center;
+    height: 75vh;
 }
 
-.card{
-    width: 25em;
+.profile-column-one {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-column-two {
+    width: 70%;
+}
+
+.profilePicture{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+}
+
+.profileName {
+    display:inline-block;
+    margin: 10px;
+}
+
+.profile-h4 {
+    margin: 10px;
+}
+
+.profile-buttons {
+    margin: 10px;
 }
 
 .PostSection{
     display: flex;
     flex-direction: column;
+}
+
+.profiles-posts{
+    margin: 15px;
 }
 
 .allPost{
