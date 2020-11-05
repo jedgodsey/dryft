@@ -39,7 +39,14 @@ body {
 
 .nav-wrapper {
     background-color: var(--dark);
-    height: 90px;
+}
+
+nav {
+    height: inherit;
+}
+
+ul.left {
+    height: inherit;
 }
 
 nav .brand-logo {
@@ -238,7 +245,7 @@ sup {
 }
 
 /* navbar styles */
-.navbar-fixed {
+/* .navbar-fixed {
     height: 90px;
 }
 
@@ -248,7 +255,7 @@ sup {
 
 .nav-holder li {
     height: 90px;
-}
+} */
 nav a{
     height: 100%;
 }
