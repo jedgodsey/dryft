@@ -184,7 +184,7 @@ def add_city(request):
     context = {"form":CityForm(), 'error_message':error_message}
     return render(request,"cities/new.html",context)
 
-
+@login_required
 def add_comment(request, post_id):
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -194,3 +194,11 @@ def add_comment(request, post_id):
             new_comment.post = Post.objects.get(id = post_id)
             new_comment.save()
             return redirect('post_detail' , post_id)
+
+@login_required
+def delete_comment(request, post_id, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    if(comment.profile.user != request.user):
+        return render(request,'404.html')
+    comment.delete()
+    return redirect('post_detail', post_id)

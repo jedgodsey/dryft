@@ -38,7 +38,7 @@ Detail Post
         <h3>
             {{comment}} by {{comment.profile.user.username}}
             {% if comment.profile.user == current_user %}
-                <a href="#" class="btn red">Delete</a>
+                <a href="{% url 'delete_comment' post.id comment.id %}" class="btn red">Delete</a>
             {% endif %}
         </h3>
         {% endfor%}
