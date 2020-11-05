@@ -14,11 +14,16 @@ New Post
     <h1>New Post</h1>
 {% endif %}
 
-<form action="{% url 'add_post'%}" enctype="multipart/form-data" method = "POST">
+{% if city %}
+    <form action="{% url 'add_post_inside_city' city.id%}" enctype="multipart/form-data" method = "POST">
+{%else %}
+    <form action="{% url 'add_post'%}" enctype="multipart/form-data" method = "POST">
+{% endif %}
     {% csrf_token %}
     {{post_form.as_p}}
     <button class="btn" type="submit">Create New Post</button>
 </form>
+
 
 
 {% if city %}
