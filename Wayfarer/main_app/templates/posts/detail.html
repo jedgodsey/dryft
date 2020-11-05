@@ -8,6 +8,7 @@ Detail Post
 {% block content %}
 <h1>{{post}}</h1>
 <img src="{{author.profile_picture.url}}" alt="ProfilePic">
+<h4>{{author.name}}</h4>
 <img class = "postPreview" src="{{post.image.url}}" alt="PostPic">
 <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
 <p>Description: {{post.content}}</p>
@@ -41,5 +42,3 @@ $(document).ready(function(){
 });
 
 </script>
-
-{% endblock %}
