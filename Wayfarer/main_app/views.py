@@ -51,6 +51,23 @@ def city_index(request):
     return render(request,'cities/index.html',context)
 
 @login_required
+def add_city(request):
+    error_message = ''
+    if request.method == "POST":
+        city_form = CityForm(request.POST, request.FILES)
+        print('two')
+        if city_form.is_valid():
+            print('three')
+            new_city = city_form.save(commit=False)
+            print('four')
+            return redirect('cities')
+        else:
+            print('five')
+            error_message = city_form.errors
+    context = {"city_form": CityForm(), "error_message": error_message}
+    return render(request, "cities/new.html", context)
+
+@login_required
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     profile = post.profile.id
@@ -164,9 +181,9 @@ def map(request):
     return render(request, 'map.html')
 
 
-@login_required
-def add_city(request):
-    if request.method == 'POST':
-        print("hello")
-        return HttpResponse("You are trying to add a city")
-    pass
+# @login_required
+# def add_city(request):
+#     if request.method == 'POST':
+#         print("hello")
+#         return HttpResponse("You are trying to add a city")
+#     pass
