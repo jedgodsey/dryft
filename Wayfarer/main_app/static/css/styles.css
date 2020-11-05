@@ -1,0 +1,245 @@
+:root {
+    --dark: rgb(1,30,62);
+    --light: rgb(0,255,113);
+    --white: rgb(255, 255, 255);
+}
+a{
+    color: var(--dark);
+}
+@font-face {
+    font-family: 'base';
+    src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'bold';
+    src: local('replica-bold'), url('../fonts/replica-bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'light';
+    src: local('replica-light'), url('../fonts/replica-light.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'italic';
+    src: local('replica-italic'), url('../fonts/replica-italic.ttf') format("truetype");
+}
+
+html {
+    font-family: 'base', Trebuchet, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 120vh;
+    flex-direction: column;
+    background-color: var(--white);
+}
+
+.nav-wrapper {
+    background-color: var(--dark);
+    height: 90px;
+}
+
+nav .brand-logo {
+    color: var(--white);
+    font-family: 'bold';
+}
+
+nav ul a {
+    color: var(--white);
+}
+
+main {
+    flex: 1 0 auto;
+    color: var(--dark);
+}
+
+.row div{
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #ffff;
+    line-height: 60px
+}
+
+.row{
+    margin: 40px auto;
+}
+
+.page-footer {
+    padding: 15px;
+    text-align: right;
+    color: var(--white);
+    background-color: var(--dark);
+}
+
+.right h5 {
+    margin: 0 0 5px 0;
+}
+
+.carousel.carousel-slider{
+    height: 500px ;
+}
+
+.lowerHomeSection{
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lowerHomeSection .card {
+    padding: 15px;
+    width: 25em;
+    height: 100%;
+}
+
+.card h3 {
+    margin: 20px 0;
+}
+
+.card p {
+    margin: 0;
+}
+
+.profileMain {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileSection {
+    display: flex;
+    background-color: var(--light);
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30vh;
+}
+
+.profile-column-one {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-column-two {
+    width: 70%;
+}
+
+.profilePicture{
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profileName {
+    display:inline-block;
+    margin: 10px;
+}
+
+.profile-h4 {
+    margin: 10px;
+}
+
+.profile-buttons {
+    margin: 10px;
+}
+
+.PostSection{
+    display: flex;
+    flex-direction: column;
+}
+
+.profiles-posts{
+    margin: 15px;
+}
+
+.allPost{
+    display: flex;
+    padding: 0px 2em;
+}
+
+
+.allPost .card{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1.5em;
+    padding: 1%;
+    border-radius: 5%;
+    width: 80%;
+    height: 100%;
+}
+.postPreview{
+    width: 90%;
+    height: auto;
+    margin: 15px auto 10px ;
+    align-self: center; 
+    border-radius: 1%;
+    border-style: solid;
+}
+.postText{
+    margin-left: 10px;
+}
+.profileMain .right{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 42em;
+}
+.card h4{
+    margin-top: 0px;
+}
+
+.postHeader{
+    display: flex;
+}
+
+.postBody{
+    padding: 20px;
+}
+.postPicture{
+    width: auto;
+    height: auto;
+}
+/* image/frame styling */
+.big-frame {
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.big-photo {
+    min-width: 100%;
+    min-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+/* logo styles */
+.logo-list {
+    display: flex;
+    white-space: nowrap;
+    line-height: 90px;
+}
+
+.logo-list img {
+    max-height: 80px;
+}
+
+sup {
+    font-size: 40px;
+}
+
+/* navbar styles */
+.navbar-fixed {
+    height: 90px;
+}
+
+.nav-holder {
+    height: 90px;
+}
+
+.nav-holder li {
+    height: 90px;
+}

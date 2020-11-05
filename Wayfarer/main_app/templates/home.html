@@ -1,13 +1,66 @@
 {% extends 'base.html' %}
 
 {% block title %}
-
+Home
 {% endblock %}
 
 {% block content %}
 
+<div class="carousel carousel-slider center">
+  <div class="carousel-fixed-item center">
+    <a href="{% url 'login' %}" class="btn waves-effect white grey-text darken-text-2">Login</a>
+  </div>
+  <div class="carousel-item amber white-text" href="#two!">
+    <div class="big-frame">
+      <img src="https://cdn.theculturetrip.com/wp-content/uploads/2017/01/9281670581_4270e671e0_k.jpeg" class="big-photo">
+    </div>
+  </div>
+  <div class="carousel-item red white-text" href="#one!">
+    <div class="big-frame">
+      <img src="https://www.sftravel.com/sites/sftravel.prod.acquia-sites.com/files/field/image/Bay-to-Breakers-Header.jpg" class="big-photo">
+    </div>
+  </div>
+  <div class="carousel-item green white-text" href="#three!">
+    <div class="big-frame">
+      <img src="https://www.worldphoto.org/sites/default/files/Mohammad%20Reza%20Domiri%20Ganji%2C%20Iran%20%2C%20Shortlist%2C%20Open%2C%20Panoramic%2C%202015%20Sony%20World%20Photography%20Awards%20%282%29.jpg" class="big-photo">
+    </div>
+  </div>
+  <div class="carousel-item blue white-text" href="#four!">
+    <div class="big-frame">
+      <img src="https://www.teamvvv.com/wp-content/uploads/2018/05/tt-isle-of-man-1919x873.jpg" class="big-photo">
+    </div>
+  </div>
+</div>
 
-
-
-
+<!-- Three Cards Underneath Carousel as requested by Customer -->
+<section class = "lowerHomeSection">
+  <div class="card">
+    <h3>Card 1</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus libero, laborum eius blanditiis facilis repellendus minus sunt quis? Illum ipsam impedit reprehenderit, quidem amet odio quam eum? Esse nihil veritatis, enim dolore nisi sunt molestias excepturi repellat quam temporibus nobis placeat beatae error quisquam totam culpa numquam possimus eum ea voluptas quas sequi recusandae tenetur ipsam? Magni, alias debitis ratione excepturi exercitationem laborum corrupti repudiandae quasi consectetur totam. Ratione itaque sint enim sunt minus eveniet quam non voluptates voluptatibus vero consequuntur aut excepturi porro corrupti, eaque error quae eius libero temporibus ea distinctio aliquam veniam quis. Delectus, corporis dignissimos.
+    </p>
+  </div>
+  <div class="card">
+    <h3>Card 2</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus libero, laborum eius blanditiis facilis repellendus minus sunt quis? Illum ipsam impedit reprehenderit, quidem amet odio quam eum? Esse nihil veritatis, enim dolore nisi sunt molestias excepturi repellat quam temporibus nobis placeat beatae error quisquam totam culpa numquam possimus eum ea voluptas quas sequi recusandae tenetur ipsam? Magni, alias debitis ratione excepturi exercitationem laborum corrupti repudiandae quasi consectetur totam. Ratione itaque sint enim sunt minus eveniet quam non voluptates voluptatibus vero consequuntur aut excepturi porro corrupti, eaque error quae eius libero temporibus ea distinctio aliquam veniam quis. Delectus, corporis dignissimos.
+    </p>
+  </div>
+  <div class="card">
+    <h3>Card 3</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus libero, laborum eius blanditiis facilis repellendus minus sunt quis? Illum ipsam impedit reprehenderit, quidem amet odio quam eum? Esse nihil veritatis, enim dolore nisi sunt molestias excepturi repellat quam temporibus nobis placeat beatae error quisquam totam culpa numquam possimus eum ea voluptas quas sequi recusandae tenetur ipsam? Magni, alias debitis ratione excepturi exercitationem laborum corrupti repudiandae quasi consectetur totam. Ratione itaque sint enim sunt minus eveniet quam non voluptates voluptatibus vero consequuntur aut excepturi porro corrupti, eaque error quae eius libero temporibus ea distinctio aliquam veniam quis. Delectus, corporis dignissimos.
+    </p>
+  </div>
+</section>
+<script>
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+  // Makes Carousel Rotate
+  setInterval(()=>{
+    $('.carousel').carousel('next');
+  },6000)
+</script>
 {% endblock %}

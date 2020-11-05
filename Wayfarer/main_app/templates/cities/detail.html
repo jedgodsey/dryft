@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail City
+{% endblock %}
+
+{% block content %}
+<h3 class="flow-text center">{{city}} , {{city.country}} </h3>
+
+    <div class="container">
+        <div class="row card"> 
+            <div class="col s12 m6 14" width="1000">
+                <img class = "materialbox responsive-img card center" src="{{city.image.url}}" width="100%" />
+            </div>
+        </div>
+    </div>  
+
+
+
+
+        {% for post in posts %}
+        <a href="{%url 'post_detail' post.id%}">
+        <div class = "container">
+            <div class = "row card">
+            
+                <h4>{{post}}</h4>
+                <img class = "materialbox responsive-img card center" src="{{post.image.url}}" alt="PostPic">
+                {{post.content}}
+                {{post.date}}
+            </div> 
+        </div>
+        </a>
+        {% endfor%}
+
+<a href="{% url 'add_post_inside_city' city.id %}" class = "btn">Add new Post</a>
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('.materialbox').materialbox();
+    });
+</script>
+{% endblock %}
