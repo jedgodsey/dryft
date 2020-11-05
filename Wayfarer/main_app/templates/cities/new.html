@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error_message %}
+<p class="red">{{error_message}}</p>
+{% endif %}
+  <h1>New City</h1>
+
+  <form enctype="multipart/form-data" method="POST">
+
+    <!-- CSRF TOKEN - Cross Site Request Forgery -->
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button class="btn" type="submit"> Add New City</button>
+
+  </form>
+
+
+{% endblock %}

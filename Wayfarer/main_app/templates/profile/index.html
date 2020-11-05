@@ -23,10 +23,12 @@ Your Profile
         <div class = "allPost">
             {% for post in posts %}
             <a href="{%url 'post_detail' post.id%}">
-            <div class="card large">
-                <h4>{{post}}</h4>
+            <div class="card small">
                 <img class = "postPreview" src="{{post.image.url}}" alt="PostPic">
-                <p>{{post.content}}</p>
+                <div class = "postText">
+                    <h4>{{post}}</h4>
+                    <p>{{post.date}}</p>
+                </div>
             </div>
             </a>
             {% endfor %}
