@@ -54,6 +54,12 @@ main {
     color: var(--dark);
 }
 
+.btn {
+    background: var(--light);
+    color: var(--dark);
+    font-family: 'base', Trebuchet, sans-serif;
+}
+
 .row div{
     padding: 10px;
     background: #ddd;
