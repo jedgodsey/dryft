@@ -18,7 +18,7 @@ Detail Post
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
 {% endif %}
 
-<button data-target="modal1" class="btn modal-trigger">Modal</button>
+<button data-target="modal1" class="btn modal-trigger">Delete</button>
 
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -26,13 +26,13 @@ Detail Post
         <p>You are about to delete this post! Would you like to continue?</p>
     </div>
         <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Disagree</a>
-        <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
     </div>
 </div>
 
-
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
+{% endif %}
 
 <script>
 
