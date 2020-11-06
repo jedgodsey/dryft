@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
+    posts = Post.objects.all()
+    print(posts)
     return render(request, 'home.html')
 
 
