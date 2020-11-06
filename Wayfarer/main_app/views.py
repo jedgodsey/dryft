@@ -24,7 +24,9 @@ def profile(request):#also known as profile index
     current_user = request.user
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(profile=profile)
-    context = {'profile': profile, 'posts':posts, 'current_user': current_user}
+    join_date = current_user.date_joined
+    formated_date = join_date.strftime("%m-%d-%Y")
+    context = {'profile': profile, 'posts':posts, 'current_user': current_user, 'date': formated_date}
     return render(request,'profile/index.html', context)
 
 
