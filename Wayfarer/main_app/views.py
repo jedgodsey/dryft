@@ -208,7 +208,6 @@ def delete_comment(request, post_id, comment_id):
         return render(request,'404.html')
     comment.delete()
     return redirect('post_detail', post_id)
-<<<<<<< HEAD
 
 
 @login_required
@@ -223,5 +222,3 @@ def add_city_from_maps(request):
             error_message = city_form.errors
     context = {"form":CityForm1(), 'error_message':error_message}
     return render(request,"cities/new.html",context)
-=======
->>>>>>> submaster
