@@ -8,13 +8,18 @@ City Index
 {% block content%}
          <div class="container">
             <div class="row">
-                <div class="col card s5">
-                {% for city in cities %}                      
-                            <a href={%url 'city_detail' city.id %}><img class = "materialbox responsive-img card" src="{{city.image.url}}" alt="{{city.name}}" width="65%"/>
-                            {{city.name}}
-                        </a>
-                {% endfor %}
-                </div>
+            {% for city in cities %}
+                    <a href="{%url 'city_detail' city.id %}">
+                        <div class="col card s5">
+                        {% if city.image %}
+                            <img class = "materialbox responsive-img card" src="{{city.image.url}}" alt="{{city.name}}" width="65%"/>
+                        {% else %}
+                            <img class = "materialbox responsive-img card" src="{{city.image_url}}" alt="{{city.name}}" width="65%"/>
+                        {% endif %}
+                        {{city.name}}
+                    </div>
+                    </a>
+            {% endfor %}
             </div>
         </div>  
 

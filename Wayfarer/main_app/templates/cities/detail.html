@@ -6,11 +6,14 @@ Detail City
 
 {% block content %}
 <h3 class="flow-text center">{{city}} , {{city.country}} </h3>
-
     <div class="container">
         <div class="row card" width="10"> 
             <div class="col card s10 m6 25" width="110">
+                {% if city.image %}
                 <img class = "materialbox responsive-img card center" src="{{city.image.url}}" width="100%" />
+                {% else %}
+                <img class = "materialbox responsive-img card center" src="{{city.image_url}}" width="100%" />
+                {% endif %}
             </div>
         </div>
     </div>

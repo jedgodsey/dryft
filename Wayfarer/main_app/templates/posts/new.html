@@ -21,6 +21,8 @@ New Post
 {% endif %}
     {% csrf_token %}
     {{post_form.as_p}}
+    <a href="{% url 'map_view'%}">Can't Find Your City</a>
+    <br>
     <button class="btn" type="submit">Create New Post</button>
 </form>
 

@@ -9,6 +9,8 @@ New Post
 <form enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     {{form.as_p}}
+    <a href="{% url 'map_view'%}">Can't Find Your City</a>
+    <br>
     <button class="btn" type="submit">Edit Post</button>
 </form>
 <script>
