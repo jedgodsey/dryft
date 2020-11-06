@@ -17,7 +17,7 @@
     <div id="map"></div>
 
     <div class = "mapForm">
-      <form action="{% url 'add_city' %}" method="POST">
+      <form action="{% url 'add_city_from_maps' %}" method="POST">
 
         <!-- CSRF TOKEN - Cross Site Request Forgery -->
         {% csrf_token %}
@@ -57,8 +57,6 @@
           
           lat= mapsMouseEvent.latLng.toJSON().lat
           lng= mapsMouseEvent.latLng.toJSON().lng
-          console.log("Lateral: "+ lat);
-          console.log("Longetude: "+ lng);
           
           url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyAfSq-RTIlRibfDmiBPkJNY5gb4owcUcEY`
           let cityName = '';
@@ -67,31 +65,32 @@
           let photoURL = '';
 
           $.getJSON(url,(result)=>{
+
             for(let j = 0 ; j < result.results[0].address_components.length; j++){
               arrTypes = result.results[0].address_components[j].types
-              console.log(result.results[0].address_components[j])
 
               if(arrTypes.includes("country") ){
                 countryName = result.results[0].address_components[j].long_name
                 document.getElementById("id_country").value = countryName;
+                console.log(`Country Name: ${countryName}`);
               }
-
+              
               if(arrTypes.includes("locality") ){
                 cityName = result.results[0].address_components[j].long_name
                 infoWindow.setContent(cityName);
                 document.getElementById("id_name").value = cityName;
+                console.log(`City Name: ${cityName}`);
                 jsonURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${cityName}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyAfSq-RTIlRibfDmiBPkJNY5gb4owcUcEY`
               }
             }
-            console.log("jsonURL")
             $.getJSON(jsonURL,(result1)=>{
               var myURL = "{% url 'add_city' %}"; 
-              console.log(result1.candidates[0].photos[0].photo_reference);
               photo_ref = result1.candidates[0].photos[0].photo_reference;
               photoURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo_ref}&key=AIzaSyAfSq-RTIlRibfDmiBPkJNY5gb4owcUcEY`
+              document.getElementById("id_image_url").value = photoURL;
+              console.log(photoURL)
+              document.getElementById("add_city").click();
             });
-            console.log(photoURL)
-            document.getElementById("add_city").click();
           });
           infoWindow.open(map);
         });

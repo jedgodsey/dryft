@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Profile, Post , City, Comment
-from .forms import ProfileForm , PostForm , CityForm, CommentForm
+from .forms import ProfileForm , PostForm , CityForm, CommentForm ,CityForm1
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
+from urllib.request import urlopen
 
 # Create your views here.
 def home(request):
@@ -172,16 +175,16 @@ def add_post_inside_city(request, city_id):
 
 @login_required
 def map(request):
-    return render(request, 'map.html',{'form':CityForm()})
+    return render(request, 'map.html',{'form':CityForm1()})
 
 
 @login_required
 def add_city(request):
     error_message = ''
-
     if request.method == 'POST':
         city_form = CityForm(request.POST, request.FILES)
         if city_form.is_valid():
+            print("HIT!!!!!!!!")
             new_city = city_form.save()
             return redirect('city_detail' , new_city.id)
         else:
@@ -207,3 +210,17 @@ def delete_comment(request, post_id, comment_id):
         return render(request,'404.html')
     comment.delete()
     return redirect('post_detail', post_id)
+
+
+@login_required
+def add_city_from_maps(request):
+    error_message = ''
+    if request.method == 'POST':
+        city_form = CityForm1(request.POST, request.FILES)
+        if city_form.is_valid():
+            new_city = city_form.save()
+            return redirect('city_detail' , new_city.id)
+        else:
+            error_message = city_form.errors
+    context = {"form":CityForm1(), 'error_message':error_message}
+    return render(request,"cities/new.html",context)

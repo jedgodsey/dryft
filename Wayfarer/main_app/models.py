@@ -2,12 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from django.utils.translation import gettext as _
+from django.core.files import File
+from urllib.request import urlopen
+from tempfile import NamedTemporaryFile
 # Create your models here.
 
 class City(models.Model):
     name = models.CharField(max_length = 100)
     country = models.CharField(max_length = 100)
     image = models.ImageField(upload_to='images/city_pics/', null=True)
+    image_url = models.URLField(null=True, max_length = 500)
+
     def __str__(self):
         return self.name
 
