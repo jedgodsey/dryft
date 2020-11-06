@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class = "formBox">
 
   <h1>Edit Profile</h1>
 
@@ -14,7 +15,7 @@
     <button class="btn" type="submit">Update Profile</button>
 
   </form>
-
+</div>
 <script>
     const selectEl = document.getElementById('id_current_city');
     M.FormSelect.init(id_current_city);
