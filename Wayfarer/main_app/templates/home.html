@@ -32,26 +32,50 @@ Home
   </div>
 </div>
 
+<h3 class="featured-posts center-align">Featured Posts</h3>
+
 <!-- Three Cards Underneath Carousel as requested by Customer -->
 <section class = "lowerHomeSection">
-  <div class="card">
-    <h3>Card 1</h3>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus libero, laborum eius blanditiis facilis repellendus minus sunt quis? Illum ipsam impedit reprehenderit, quidem amet odio quam eum? Esse nihil veritatis, enim dolore nisi sunt molestias excepturi repellat quam temporibus nobis placeat beatae error quisquam totam culpa numquam possimus eum ea voluptas quas sequi recusandae tenetur ipsam? Magni, alias debitis ratione excepturi exercitationem laborum corrupti repudiandae quasi consectetur totam. Ratione itaque sint enim sunt minus eveniet quam non voluptates voluptatibus vero consequuntur aut excepturi porro corrupti, eaque error quae eius libero temporibus ea distinctio aliquam veniam quis. Delectus, corporis dignissimos.
-    </p>
+
+  <div class="card large">
+    <a href="{% url 'post_detail' posts.0.id %}">
+      <div class="card-image">
+        <img class="home-card-image" src="./media/{{posts.0.image}}" alt="post image">
+      </div>
+      <div id="home-card-text" class="card-content home-card-text">
+        <h5>{{posts.0.title}}</h5>
+        <h6>{{posts.0.city.name}}, {{posts.0.city.country}}</h6>
+        <p>{{posts.0.content}}</p>
+      </div>
+    </a>
   </div>
-  <div class="card">
-    <h3>Card 2</h3>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus libero, laborum eius blanditiis facilis repellendus minus sunt quis? Illum ipsam impedit reprehenderit, quidem amet odio quam eum? Esse nihil veritatis, enim dolore nisi sunt molestias excepturi repellat quam temporibus nobis placeat beatae error quisquam totam culpa numquam possimus eum ea voluptas quas sequi recusandae tenetur ipsam? Magni, alias debitis ratione excepturi exercitationem laborum corrupti repudiandae quasi consectetur totam. Ratione itaque sint enim sunt minus eveniet quam non voluptates voluptatibus vero consequuntur aut excepturi porro corrupti, eaque error quae eius libero temporibus ea distinctio aliquam veniam quis. Delectus, corporis dignissimos.
-    </p>
+
+  <div class="card large">
+    <a href="{% url 'post_detail' posts.1.id %}">
+      <div class="card-image">
+        <img class="home-card-image" src="./media/{{posts.1.image}}" alt="post image">
+      </div>
+      <div id="home-card-text" class="card-content home-card-text">
+        <h5>{{posts.1.title}}</h5>
+        <h6>{{posts.1.city.name}}, {{posts.1.city.country}}</h6>
+        <p>{{posts.1.content}}</p>
+      </div>
+    </a>
   </div>
-  <div class="card">
-    <h3>Card 3</h3>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus libero, laborum eius blanditiis facilis repellendus minus sunt quis? Illum ipsam impedit reprehenderit, quidem amet odio quam eum? Esse nihil veritatis, enim dolore nisi sunt molestias excepturi repellat quam temporibus nobis placeat beatae error quisquam totam culpa numquam possimus eum ea voluptas quas sequi recusandae tenetur ipsam? Magni, alias debitis ratione excepturi exercitationem laborum corrupti repudiandae quasi consectetur totam. Ratione itaque sint enim sunt minus eveniet quam non voluptates voluptatibus vero consequuntur aut excepturi porro corrupti, eaque error quae eius libero temporibus ea distinctio aliquam veniam quis. Delectus, corporis dignissimos.
-    </p>
+
+  <div class="card large">
+    <a href="{% url 'post_detail' posts.2.id %}">
+      <div class="card-image">
+        <img class="home-card-image" src="./media/{{posts.2.image}}" alt="post image">
+      </div>
+      <div id="home-card-text" class="card-content home-card-text">
+        <h5>{{posts.2.title}}</h5>
+        <h6>{{posts.2.city.name}}, {{posts.2.city.country}}</h6>
+        <p>{{posts.2.content}}</p>
+      </div>
+    </a>
   </div>
+
 </section>
 <script>
   $('.carousel.carousel-slider').carousel({

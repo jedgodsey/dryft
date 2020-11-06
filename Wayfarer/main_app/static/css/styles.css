@@ -136,7 +136,11 @@ main {
     height: 500px ;
 }
 
-.lowerHomeSection{
+.featured-posts {
+    margin: 30px;
+}
+
+.lowerHomeSection {
     margin-top: 2em;
     margin-bottom: 1.5em;
     display: flex;
@@ -146,6 +150,19 @@ main {
 .lowerHomeSection .card {
     padding: 15px;
     width: 25em;
+    transition: transform .2s;
+}
+
+.lowerHomeSection .card:hover {
+    transform: scale(1.1);
+}
+
+.home-card-image {
+    height: 180px;
+}
+
+.card a {
+    width: 100%;
     height: 100%;
 }
 
@@ -155,6 +172,12 @@ main {
 
 .card p {
     margin: 0;
+}
+
+#home-card-text {
+    max-height: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .profileMain {
@@ -214,7 +237,6 @@ main {
     padding: 0px 2em;
 }
 
-
 .allPost .card{
     display: flex;
     flex-direction: column;
@@ -224,6 +246,7 @@ main {
     width: 80%;
     height: 100%;
 }
+
 .postPreview{
     width: 90%;
     height: auto;
@@ -232,9 +255,11 @@ main {
     border-radius: 1%;
     border-style: solid;
 }
+
 .postText{
     margin-left: 10px;
 }
+
 .profileMain .right{
     display:flex;
     align-items:center;
@@ -282,7 +307,7 @@ main {
 }
 
 /* logo styles */
-.logo-list {
+/* .logo-list {
     display: flex;
     white-space: nowrap;
     line-height: 90px;
@@ -294,11 +319,11 @@ main {
 
 sup {
     font-size: 40px;
-}
+} */
 
 /* navbar styles */
-.navbar-fixed {
-    height: 90px;
+/* .navbar-fixed { */
+    /* height: 90px;
 }
 
 .nav-holder {
@@ -315,7 +340,7 @@ nav a{
 
 .logo-list{
     display: flex;
-}
+} */
 
 .about-heading {
     margin: 50px;
