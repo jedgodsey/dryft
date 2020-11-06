@@ -3,9 +3,11 @@
     --light: rgb(0,255,113);
     --white: rgb(255, 255, 255);
 }
-a{
+a {
     color: var(--dark);
 }
+
+/* FONTS */
 @font-face {
     font-family: 'base';
     src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
@@ -40,6 +42,7 @@ body {
 }
 
 
+/* NAVBAR */
 @media (max-width: 600px) {
     .brand-logo{
       height: 50%;
@@ -50,18 +53,36 @@ body {
     background-color: var(--dark);
 }
 
-nav {
-    height: inherit;
-    line-height: 90px;
-}
-
-ul.left {
-    height: inherit;
-}
-
 nav .brand-logo {
     color: var(--white);
     font-family: 'bold';
+}
+
+/* logo styles */
+.logo-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    white-space: nowrap;
+    
+}
+
+.logo-list {
+    align-content: center;
+}
+
+.logo-list img {
+    max-height: 100%;
+}
+
+.logo-text {
+    max-height: 100%;
+    font-size: 40px;
+    padding-top: 19px;
+}
+
+nav a{
+    height: 100%;
 }
 
 nav ul a {
@@ -115,7 +136,11 @@ main {
     height: 500px ;
 }
 
-.lowerHomeSection{
+.featured-posts {
+    margin: 30px;
+}
+
+.lowerHomeSection {
     margin-top: 2em;
     margin-bottom: 1.5em;
     display: flex;
@@ -125,6 +150,19 @@ main {
 .lowerHomeSection .card {
     padding: 15px;
     width: 25em;
+    transition: transform .2s;
+}
+
+.lowerHomeSection .card:hover {
+    transform: scale(1.1);
+}
+
+.home-card-image {
+    height: 180px;
+}
+
+.card a {
+    width: 100%;
     height: 100%;
 }
 
@@ -134,6 +172,12 @@ main {
 
 .card p {
     margin: 0;
+}
+
+#home-card-text {
+    max-height: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .profileMain {
@@ -193,7 +237,6 @@ main {
     padding: 0px 2em;
 }
 
-
 .allPost .card{
     display: flex;
     flex-direction: column;
@@ -203,6 +246,7 @@ main {
     width: 80%;
     height: 100%;
 }
+
 .postPreview{
     width: 90%;
     height: auto;
@@ -211,9 +255,11 @@ main {
     border-radius: 1%;
     border-style: solid;
 }
+
 .postText{
     margin-left: 10px;
 }
+
 .profileMain .right{
     display:flex;
     align-items:center;
@@ -261,7 +307,7 @@ main {
 }
 
 /* logo styles */
-.logo-list {
+/* .logo-list {
     display: flex;
     white-space: nowrap;
     line-height: 90px;
@@ -273,11 +319,11 @@ main {
 
 sup {
     font-size: 40px;
-}
+} */
 
 /* navbar styles */
-.navbar-fixed {
-    height: 90px;
+/* .navbar-fixed { */
+    /* height: 90px;
 }
 
 .nav-holder {
@@ -294,7 +340,7 @@ nav a{
 
 .logo-list{
     display: flex;
-}
+} */
 
 .about-heading {
     margin: 50px;
