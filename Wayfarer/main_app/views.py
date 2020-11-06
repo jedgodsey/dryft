@@ -9,12 +9,16 @@ from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from urllib.request import urlopen
 
+
+import random
+
 # Create your views here.
 def home(request):
-    posts = Post.objects.all()
+    posts = list(Post.objects.all())
+    random.shuffle(posts)
     print(posts)
-    return render(request, 'home.html')
-
+    context = { 'posts': posts }
+    return render(request, 'home.html', context)
 
 def about(request):
     return render(request, 'about.html')
