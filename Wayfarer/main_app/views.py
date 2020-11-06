@@ -34,7 +34,6 @@ def edit_profile(request,profile_id):
         if form.is_valid():
             updated_profile = form.save()
             return redirect('profile')
-            
     else:
         form = ProfileForm(instance=profile)
         context = {
@@ -86,10 +85,6 @@ def add_post(request):
     context = {"post_form": PostForm(), 'error_message': error_message}
     return render(request, "posts/new.html", context)
 
-def post_index(request, post_id):
-    pass
-
-
 @login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -106,7 +101,6 @@ def post_edit(request, post_id):
         context = { 'form': form, 'post': post }
         return render(request, 'posts/edit.html', context)
 
-
 @login_required
 def post_delete(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -114,8 +108,6 @@ def post_delete(request, post_id):
         return render(request,'404.html')
     post.delete()
     return redirect('profile')
-
-
 
 @login_required
 def city_detail(request, city_id):
@@ -127,10 +119,22 @@ def city_detail(request, city_id):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        print(request.POST.get('current_city'))
-        if form.is_valid():
-            user = form.save()
+        user_form = UserCreationForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if profile_form.is_valid():
+            test_user = profile_form.save(commit=False)
+            check_email = test_user.__dict__['email']
+            matches = Profile.objects.filter(email = check_email)
+            if matches.exists():
+                error_message = 'There is already a user with this email address'
+                context = {
+                    'profile_form': ProfileForm(),
+                    'form': UserCreationForm(),
+                    'error_message': error_message
+                }
+                return render(request,'registration/signup.html', context)
+        if user_form.is_valid():
+            user = user_form.save()
             login(request,user)
             city_choice = request.POST.get("current_city")
             matched_city = City.objects.get(id = city_choice)
@@ -139,7 +143,6 @@ def signup(request):
             return redirect('profile')
         else:
             error_message = 'Invalid Sign Up - try again'
-    
     form = UserCreationForm()
     profile_form  = ProfileForm()
     context = {
@@ -205,6 +208,7 @@ def delete_comment(request, post_id, comment_id):
         return render(request,'404.html')
     comment.delete()
     return redirect('post_detail', post_id)
+<<<<<<< HEAD
 
 
 @login_required
@@ -219,3 +223,5 @@ def add_city_from_maps(request):
             error_message = city_form.errors
     context = {"form":CityForm1(), 'error_message':error_message}
     return render(request,"cities/new.html",context)
+=======
+>>>>>>> submaster

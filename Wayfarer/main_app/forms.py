@@ -16,6 +16,7 @@ class CityForm(forms.ModelForm):
     # cities = forms.ModelChoiceField(queryset=City.objects.all())
     class Meta:
         model = City
+<<<<<<< HEAD
         fields = ("name","country","image")
 
 
@@ -24,6 +25,9 @@ class CityForm1(forms.ModelForm):
     class Meta:
         model = City
         fields = ("name","country","image_url")       
+=======
+        fields = ("name","country", "image")
+>>>>>>> submaster
 
 class CommentForm(forms.ModelForm):
     

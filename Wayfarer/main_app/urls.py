@@ -16,8 +16,12 @@ urlpatterns = [
     path('post/<int:post_id>/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     path('cities/', views.city_index, name='cities'),
     path('cities/new/', views.add_city, name='add_city'),
+<<<<<<< HEAD
     path('cities/new/map/', views.add_city_from_maps, name='add_city_from_maps'),
     path('cities/<int:city_id>/', views.city_detail, name='city_detail'),
+=======
+    path('cities/<int:city_id>', views.city_detail, name='city_detail'),
+>>>>>>> submaster
     path('map/', views.map, name='map_view'),
     path('accounts/signup', views.signup, name='signup'),
 ]
