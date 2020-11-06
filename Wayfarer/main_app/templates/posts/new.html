@@ -8,23 +8,24 @@ New Post
 {% if error_message %}
     <p class="red">{{error_message}}</p>
 {% endif %}
-{% if city %}
-    <h1>{{city}} Post</h1>
-{% else %}
-    <h1>New Post</h1>
-{% endif %}
-
-{% if city %}
-    <form action="{% url 'add_post_inside_city' city.id%}" enctype="multipart/form-data" method = "POST">
-{%else %}
-    <form action="{% url 'add_post'%}" enctype="multipart/form-data" method = "POST">
-{% endif %}
-    {% csrf_token %}
-    {{post_form.as_p}}
-    <a href="{% url 'map_view'%}">Can't Find Your City</a>
-    <br>
-    <button class="btn" type="submit">Create New Post</button>
-</form>
+<div class = "formBox">
+    {% if city %}
+        <h1>{{city}} Post</h1>
+    {% else %}
+        <h1>New Post</h1>
+    {% endif %}
+    {% if city %}
+        <form action="{% url 'add_post_inside_city' city.id%}" enctype="multipart/form-data" method = "POST">
+    {%else %}
+        <form action="{% url 'add_post'%}" enctype="multipart/form-data" method = "POST">
+    {% endif %}
+        {% csrf_token %}
+        {{post_form.as_p}}
+        <a href="{% url 'map_view'%}">Can't Find Your City</a>
+        <br>
+        <button class="btn" type="submit">Create New Post</button>
+        </form>
+</div>
 
 
 

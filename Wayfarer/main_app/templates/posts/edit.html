@@ -5,14 +5,17 @@ New Post
 {% endblock %}
 
 {% block content %}
-<h1>Edit Post</h1>
-<form enctype="multipart/form-data" method="POST">
+<div class = "formBox">
+
+    <h1>Edit Post</h1>
+    <form enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <a href="{% url 'map_view'%}">Can't Find Your City</a>
     <br>
     <button class="btn" type="submit">Edit Post</button>
-</form>
+    </form>
+</div>
 <script>
     const selectEl = document.getElementById('id_city');
     M.FormSelect.init(id_city);

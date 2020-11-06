@@ -4,6 +4,7 @@
 {% if error_message %}
     <p class="red">{{error_message}}</p>
 {% endif %}
+<div class = "formBox">
 
 <h1>Sign Up</h1>
 
@@ -14,6 +15,7 @@
     <button class="btn" type="submit">Signup</button>
 </form>
 
+</div>
 <script>
     const selectEl = document.getElementById('id_current_city');
     M.FormSelect.init(id_current_city);
