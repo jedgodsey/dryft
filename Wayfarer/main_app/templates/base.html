@@ -34,7 +34,7 @@
           {% endif %}
         </ul>
       </div>
-    </nav>
+    </nav> 
   </header>
 
   <main>
@@ -49,5 +49,11 @@
   </footer>
   
   <script src="{% static 'javascript/main.js' %}"></script>
+  <script>
+  $(document).ready(function(){
+        $('.modal').modal();
+        $('.materialbox').materialbox();
+    });
+  </script>
 </body>
 </html>

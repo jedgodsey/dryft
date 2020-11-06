@@ -8,29 +8,26 @@ Detail City
 <h3 class="flow-text center">{{city}} , {{city.country}} </h3>
 
     <div class="container">
-        <div class="row card"> 
-            <div class="col s12 m6 14" width="1000">
+        <div class="row card" width="10"> 
+            <div class="col card s10 m6 25" width="110">
                 <img class = "materialbox responsive-img card center" src="{{city.image.url}}" width="100%" />
             </div>
         </div>
-    </div>  
-
-
-
-
+    </div>
+    <div class="container">
+        <div class="row card"> 
+        <h4 class="flow-text">User Posts</h4>
         {% for post in posts %}
-        <a href="{%url 'post_detail' post.id%}">
-        <div class = "container">
-            <div class = "row card">
-            
-                <h4>{{post}}</h4>
+        <a href="{%url 'post_detail' post.id%}">     
+            <div class = "col s10 m3 25">  
+                {{post}}
                 <img class = "materialbox responsive-img card center" src="{{post.image.url}}" alt="PostPic">
-                {{post.content}}
-                {{post.date}}
-            </div> 
-        </div>
+            </div>
+            
         </a>
         {% endfor%}
+        </div>
+    </div>
 
 <a href="{% url 'add_post_inside_city' city.id %}" class = "btn">Add new Post</a>
 <script>
