@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wayfarer - {% block title %}{% endblock %}</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <!-- Materialize CSS CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
@@ -17,13 +19,14 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <header class="navbar-fixed">
-    <nav class="nav-holder">
+    <nav>
       <div class="nav-wrapper">
         <ul>
           <li class="logo-list"><a href="/" class="left brand-logo">&nbsp;<img src="/static/logos/dryft-logo-GREEN.svg" class="logo">&nbsp;<sup>DRYFT</sup></a></li>
         </ul>
         <ul class="right nav-holder">
           <li><a href="/">Home</a></li>
+          <li class="nav-holder"><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
             <li class="nav-holder"><a href="{% url 'profile' %}">Profile</a></li>
             <li class="nav-holder"><a href="{% url 'cities' %}">Destinations</a></li>

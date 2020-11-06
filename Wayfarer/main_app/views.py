@@ -11,6 +11,8 @@ from urllib.request import urlopen
 
 # Create your views here.
 def home(request):
+    posts = Post.objects.all()
+    print(posts)
     return render(request, 'home.html')
 
 

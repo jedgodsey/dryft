@@ -48,7 +48,14 @@ body {
 
 .nav-wrapper {
     background-color: var(--dark);
-    height: 90px;
+}
+
+nav {
+    height: inherit;
+}
+
+ul.left {
+    height: inherit;
 }
 
 nav .brand-logo {
@@ -63,6 +70,12 @@ nav ul a {
 main {
     flex: 1 0 auto;
     color: var(--dark);
+}
+
+.btn {
+    background: var(--light);
+    color: var(--dark);
+    font-family: 'base';
 }
 
 .row div{
@@ -253,7 +266,7 @@ sup {
 }
 
 /* navbar styles */
-.navbar-fixed {
+/* .navbar-fixed {
     height: 90px;
 }
 
@@ -263,10 +276,43 @@ sup {
 
 .nav-holder li {
     height: 90px;
-}
+} */
 nav a{
     height: 100%;
 }
+
 .logo-list{
     display: flex;
+}
+
+.about-heading {
+    margin: 50px;
+}
+
+.about-brand {
+    font-family: 'bold';
+}
+
+.para-img-two, .para-img-one {
+    height: 200px;
+}
+
+.about-paragraph {
+    padding: 50px;
+    font-size: 2em;
+}
+
+.github-link {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-github {
+    font-size: 8em;
+    margin-bottom: 50px;
+    color: var(--dark);
+}
+
+.fa-github:hover {
+    color: var(--light);
 }
