@@ -15,10 +15,10 @@ Your Profile
 
 <div class = "container">  
             <div class="col s1 m6 14">   
-                <h5 >{{profile.name}}</h5>
+                <h3>{{profile.name}}</h3>
                 <h5>Current City: {{profile.current_city}}</h5>
-                <h5>Member since: {{current_user.date_joined}}</h5>
-                <h6>My Posts</h1>
+                <h5>Member since: {{date}}</h5>
+                <h3>My Posts</h3>
                     {% for post in posts %}
                         <a href="{%url 'post_detail' post.id%}">      
                             <h4>{{post}}</h4>
