@@ -31,16 +31,33 @@ Detail Post
         <h4>Warning!</h4>
         <p>You are about to delete this post! Would you like to continue?</p>
     </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
-            <a href="{% url 'post_delete' post.id %}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+    
+    <a href="{% url 'post_edit' post.id %}" class="btn  blue accent-3">Edit</a>
+    {% endif %}
+    <br>
+    <h5>All Comments</h5>
+    <div class = "postComments">
+        {% for comment in comments %}
+        <h3>
+            {{comment}} by {{comment.profile.user.username}}
+            {% if comment.profile.user == current_user %}
+                <a href="{% url 'delete_comment' post.id comment.id %}" class="btn red">Delete</a>
+            {% endif %}
+        </h3>
+        {% endfor%}
     </div>
+    <form action="{% url 'add_comment' post.id%}" method="POST">
+
+        <!-- CSRF TOKEN - Cross Site Request Forgery -->
+        {% csrf_token %}
+    
+        {{ comment_form.as_p }}
+    
+        <button class="btn  blue accent-3" type="submit"> Add Comment</button>
+    
+    </form>
+   
 </div>
-
-<a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
-
-
-{% endif %}
 <script>
 
 $(document).ready(function(){
@@ -49,5 +66,4 @@ $(document).ready(function(){
 });
 
 </script>
-
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Profile, Post , City
-from .forms import ProfileForm , PostForm , CityForm
+from .models import Profile, Post , City, Comment
+from .forms import ProfileForm , PostForm , CityForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -31,7 +31,6 @@ def edit_profile(request,profile_id):
         if form.is_valid():
             updated_profile = form.save()
             return redirect('profile')
-            
     else:
         form = ProfileForm(instance=profile)
         context = {
@@ -57,7 +56,14 @@ def post_detail(request, post_id):
     author = Profile.objects.get(id=profile)
     # city= post.city
     current_user = request.user
-    context = {'post':post, 'author': author, 'modifiable':(current_user == author.user) }
+    comments = Comment.objects.filter(post=post)
+    context = {
+        'post':post, 
+        'author': author, 
+        'modifiable':(current_user == author.user), 
+        'comment_form': CommentForm(), 
+        'comments': comments,
+        'current_user': current_user}
     return render(request,'posts/detail.html', context)
 
 @login_required
@@ -76,10 +82,6 @@ def add_post(request):
     context = {"post_form": PostForm(), 'error_message': error_message}
     return render(request, "posts/new.html", context)
 
-def post_index(request, post_id):
-    pass
-
-
 @login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -96,7 +98,6 @@ def post_edit(request, post_id):
         context = { 'form': form, 'post': post }
         return render(request, 'posts/edit.html', context)
 
-
 @login_required
 def post_delete(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -104,8 +105,6 @@ def post_delete(request, post_id):
         return render(request,'404.html')
     post.delete()
     return redirect('profile')
-
-
 
 @login_required
 def city_detail(request, city_id):
@@ -117,10 +116,22 @@ def city_detail(request, city_id):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        print(request.POST.get('current_city'))
-        if form.is_valid():
-            user = form.save()
+        user_form = UserCreationForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if profile_form.is_valid():
+            test_user = profile_form.save(commit=False)
+            check_email = test_user.__dict__['email']
+            matches = Profile.objects.filter(email = check_email)
+            if matches.exists():
+                error_message = 'There is already a user with this email address'
+                context = {
+                    'profile_form': ProfileForm(),
+                    'form': UserCreationForm(),
+                    'error_message': error_message
+                }
+                return render(request,'registration/signup.html', context)
+        if user_form.is_valid():
+            user = user_form.save()
             login(request,user)
             city_choice = request.POST.get("current_city")
             matched_city = City.objects.get(id = city_choice)
@@ -129,7 +140,6 @@ def signup(request):
             return redirect('profile')
         else:
             error_message = 'Invalid Sign Up - try again'
-    
     form = UserCreationForm()
     profile_form  = ProfileForm()
     context = {
@@ -154,19 +164,44 @@ def add_post_inside_city(request, city_id):
         else:
             error_message = post_form.errors
     city = City.objects.get(id=city_id)
-    hideCity = True
     context = {"post_form":PostForm(initial={'city': city}), 'error_message':error_message, 'city':city}
     return render(request,"posts/new.html",context)
 
 
 @login_required
 def map(request):
-    return render(request, 'map.html')
+    return render(request, 'map.html',{'form':CityForm()})
 
 
 @login_required
 def add_city(request):
+    error_message = ''
+
     if request.method == 'POST':
-        print("hello")
-        return HttpResponse("You are trying to add a city")
-    pass
+        city_form = CityForm(request.POST, request.FILES)
+        if city_form.is_valid():
+            new_city = city_form.save()
+            return redirect('city_detail' , new_city.id)
+        else:
+            error_message = city_form.errors
+    context = {"form":CityForm(), 'error_message':error_message}
+    return render(request,"cities/new.html",context)
+
+@login_required
+def add_comment(request, post_id):
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.profile = Profile.objects.get(user = request.user)
+            new_comment.post = Post.objects.get(id = post_id)
+            new_comment.save()
+            return redirect('post_detail' , post_id)
+
+@login_required
+def delete_comment(request, post_id, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    if(comment.profile.user != request.user):
+        return render(request,'404.html')
+    comment.delete()
+    return redirect('post_detail', post_id)
