@@ -221,6 +221,10 @@ def delete_comment(request, post_id, comment_id):
 @login_required
 def add_city_from_maps(request):
     error_message = ''
+    cityName = request.POST.get('name')
+    found_city = City.objects.filter(name = cityName )
+    if found_city:
+        return redirect('city_detail' , found_city[0].id)
     if request.method == 'POST':
         city_form = CityForm1(request.POST, request.FILES)
         if city_form.is_valid():
