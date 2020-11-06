@@ -111,17 +111,15 @@ main {
     margin: 10px auto;
 }
 
+.col {
+    overflow: hidden;
+}
+
 .col div{
-    /* padding: 8px; */
     background: #ffff;
     border: 1px solid #ffff;
     line-height: 5px;
 }
-
-/* .col{
-    margin: 10px auto;
-} */
-
 
 .page-footer {
     padding: 15px;
@@ -272,6 +270,52 @@ main {
     margin: auto;
 }
 
+.medium-frame {
+    width: 85%;
+    height: 60%;
+    overflow: hidden;
+}
+
+.medium-photo {
+    width: 100%;
+    height: 100%;
+}
+
+/* logo styles */
+.logo-list {
+    display: flex;
+    white-space: nowrap;
+    line-height: 90px;
+}
+
+.logo-list img {
+    max-height: 80px;
+}
+
+sup {
+    font-size: 40px;
+}
+
+/* navbar styles */
+.navbar-fixed {
+    height: 90px;
+}
+
+.nav-holder {
+    height: 90px;
+}
+
+.nav-holder li {
+    height: 90px;
+}
+
+nav a{
+    height: 100%;
+}
+
+.logo-list{
+    display: flex;
+}
 
 .about-heading {
     margin: 50px;
@@ -303,4 +347,25 @@ main {
 
 .fa-github:hover {
     color: var(--light);
+}
+
+.tiles {
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px;
+}
+.city-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+}
+
+.description {
+    height: 25%;
 }
