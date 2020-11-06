@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 
@@ -6,8 +7,28 @@
 
 {% block content %}
 
-<h1>About Wayfarer</h1>
-<p>Wayfarer is a Django application created by 4 General Assembly students.  It gives anyone the opportunity to log in and talk about their travel experiences, thereby shining a light for others on their travel decisions.</p>
+<div class="parallax-container parallax-img-one">
+    <div class="parallax"><img src="{% static 'images/pexels-philipp-birmes-830891.jpg' %}"></div>
+</div>
 
+<h1 class="about-heading">About <span class="about-brand">DRYFT</span></h1>
+
+<div class="parallax-container parallax-img-two">
+    <div class="parallax"><img src="{% static 'images/pexels-james-wheeler-417074.jpg' %}"></div>
+</div>
+
+<p class="about-paragraph">Wayfarer is a Django application created by 4 General Assembly students.  It gives anyone the opportunity to log in and talk about their travel experiences, thereby shining a light for others on their travel decisions.</p>
+
+<div class="github-link">
+    <a href="https://github.com/jedgodsey/project-2-1020">
+        <i class="fab fa-github"></i>
+    </a>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.parallax').parallax();
+});
+</script>
 
 {% endblock %}

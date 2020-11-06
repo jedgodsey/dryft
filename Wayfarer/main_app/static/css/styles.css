@@ -66,7 +66,7 @@ main {
 .btn {
     background: var(--light);
     color: var(--dark);
-    font-family: 'base', Trebuchet, sans-serif;
+    font-family: 'base';
 }
 
 .row div{
@@ -259,6 +259,39 @@ sup {
 nav a{
     height: 100%;
 }
+
 .logo-list{
     display: flex;
+}
+
+.about-heading {
+    margin: 50px;
+}
+
+.about-brand {
+    font-family: 'bold';
+}
+
+.para-img-two, .para-img-one {
+    height: 200px;
+}
+
+.about-paragraph {
+    padding: 50px;
+    font-size: 2em;
+}
+
+.github-link {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-github {
+    font-size: 8em;
+    margin-bottom: 50px;
+    color: var(--dark);
+}
+
+.fa-github:hover {
+    color: var(--light);
 }
