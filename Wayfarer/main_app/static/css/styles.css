@@ -3,9 +3,11 @@
     --light: rgb(0,255,113);
     --white: rgb(255, 255, 255);
 }
-a{
+a {
     color: var(--dark);
 }
+
+/* FONTS */
 @font-face {
     font-family: 'base';
     src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
@@ -40,6 +42,7 @@ body {
 }
 
 
+/* NAVBAR */
 @media (max-width: 600px) {
     .brand-logo{
       height: 50%;
@@ -50,17 +53,36 @@ body {
     background-color: var(--dark);
 }
 
-nav {
-    height: inherit;
-}
-
-ul.left {
-    height: inherit;
-}
-
 nav .brand-logo {
     color: var(--white);
     font-family: 'bold';
+}
+
+/* logo styles */
+.logo-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    white-space: nowrap;
+    
+}
+
+.logo-list {
+    align-content: center;
+}
+
+.logo-list img {
+    max-height: 100%;
+}
+
+.logo-text {
+    max-height: 100%;
+    font-size: 40px;
+    padding-top: 19px;
+}
+
+nav a{
+    height: 100%;
 }
 
 nav ul a {
@@ -250,40 +272,6 @@ main {
     margin: auto;
 }
 
-/* logo styles */
-.logo-list {
-    display: flex;
-    white-space: nowrap;
-    line-height: 90px;
-}
-
-.logo-list img {
-    max-height: 80px;
-}
-
-sup {
-    font-size: 40px;
-}
-
-/* navbar styles */
-/* .navbar-fixed {
-    height: 90px;
-}
-
-.nav-holder {
-    height: 90px;
-}
-
-.nav-holder li {
-    height: 90px;
-} */
-nav a{
-    height: 100%;
-}
-
-.logo-list{
-    display: flex;
-}
 
 .about-heading {
     margin: 50px;
