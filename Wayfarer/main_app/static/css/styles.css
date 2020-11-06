@@ -24,6 +24,8 @@
     src: local('replica-italic'), url('../fonts/replica-italic.ttf') format("truetype");
 }
 
+
+
 html {
     font-family: 'base', Trebuchet, sans-serif;
 }
@@ -33,6 +35,13 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: var(--white);
+}
+
+
+@media (max-width: 600px) {
+    .brand-logo{
+      height: 50%;
+    }
 }
 
 .nav-wrapper {
@@ -56,25 +65,15 @@ main {
 
 .row div{
     padding: 10px;
-    background: #ddd;
+    background: #ffff;
     border: 1px solid #ffff;
     line-height: 60px
 }
 
 .row{
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
-.col div{
-    padding: 10px;
-    background: #ddd;
-    border: 1px solid #ffff;
-    line-height: 60px
-}
-
-.col{
-    margin: 20px auto;
-}
 
 .page-footer {
     padding: 15px;

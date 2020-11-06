@@ -9,9 +9,8 @@ City Index
          <div class="container">
             <div class="row card">
             {% for city in cities %}
-                    <div class="col s12 m6 14">
+                    <div class="col s12 m3 14">
                         <a href={%url 'city_detail' city.id %}><img class = "materialbox responsive-img card" src="{{city.image.url}}" alt="{{city.name}}"/></a>
-                        {{city.name}}
                     </div>
             {% endfor %}
             </div>

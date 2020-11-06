@@ -7,15 +7,20 @@ Detail Post
 {% block content %}
 <h1>{{post}}</h1>
 <div class="container">
-        <div class="row card">           
-                <img class="profilePicture materialbox responsive-img" src="{{author.profile_picture.url}}" alt="ProfilePic">
-                <h4>{{author.name}}</h4>
-                <img class = "postPreview materialbox responsive-img" src="{{post.image.url}}" alt="PostPic">
-                <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
-                {{post.content}}
-                {{post.date}}
+         
+        
+        <div class="col s1 m6 14">
+            <img class="profilePicture materialbox responsive-img" src="{{author.profile_picture.url}}" alt="ProfilePic">
+        </div>      
+        <div class="col s1 m6 14">
+            <h4>{{author.name}}</h4>
+            <img class = "postPreview materialbox responsive-img" src="{{post.image.url}}" alt="PostPic">
+            <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
+            {{post.date}}
+            <p class="flow-text">{{post.content}}</p>
         </div>
-    </div> 
+    
+</div> 
 
 
 {% if modifiable %}
@@ -35,7 +40,7 @@ Detail Post
 <a href="{% url 'post_edit' post.id %}" class="btn">Edit</a>
 
 
-{% endblock %}
+{% endif %}
 <script>
 
 $(document).ready(function(){

@@ -5,37 +5,35 @@ Your Profile
 {% endblock %}
 
 {% block content %}
-<div class = "profileMain">
-    <section class = "profileSection">
-        <div class="profile-column-one">
-            <img class = "profilePicture" src="{{profile.profile_picture.url}}" alt="ProfilePic">
+
+
+    <div class="container">
+        <div class="col s1 m6 14 center">
+            <img class="profilePicture materialbox responsive-img" src="{{profile.profile_picture.url}}" alt="ProfilePic">
         </div>
-        <div class="profile-section-two">
-            <h3 class = "profileName">{{profile.name}}</h3>
-            <h4 class="profile-h4">Current City: {{profile.current_city}}</h4>
-            <h4 class="profile-h4">Member since: {{current_user.date_joined}}</h4>
-            <a href="{% url 'add_post'%}" class = "profile-buttons btn">Add new Post</a>
-            <a href="{% url 'edit_profile' profile.id %}" class = "profile-buttons btn">Edit Profile</a>
-        </div>
-    </section>
-    <section class = "PostSection">
-        <h2 class="profiles-posts">{{profile.name}}'s Posts</h1>
-        <div class = "allPost">
-            {% for post in posts %}
-            <a href="{%url 'post_detail' post.id%}">
-            <div class="card large">
-                <h4>{{post}}</h4>
-                <img class = "postPreview" src="{{post.image.url}}" alt="PostPic">
-                <p>{{post.content}}</p>
+    </div>
+
+<div class = "container">  
+            <div class="col s1 m6 14">   
+                <h5 >{{profile.name}}</h5>
+                <h5>Current City: {{profile.current_city}}</h5>
+                <h5>Member since: {{current_user.date_joined}}</h5>
+                <h6>My Posts</h1>
+                    {% for post in posts %}
+                        <a href="{%url 'post_detail' post.id%}">      
+                            <h4>{{post}}</h4>
+                            <img class = "materialbox responsive-img" width="30%" src="{{post.image.url}}" alt="PostPic">
+                            <p class="flow-text">{{post.content}}</p>
+                        </a>
+                    {% endfor %} 
             </div>
-            </a>
-            {% endfor %}
-        </div>
-
-    </section>
-    
 </div>
-
+<a href="{% url 'add_post'%}" class = "profile-buttons btn">Add new Post</a>
+<a href="{% url 'edit_profile' profile.id %}" class = "profile-buttons btn">Edit Profile</a>
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('.materialbox').materialbox();
+    });
+</script>
 {% endblock %}
-
-name, the current city they have set in their profile, and their join date.
