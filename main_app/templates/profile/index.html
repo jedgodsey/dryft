@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Your Profile
+{% endblock %}
+
+{% block content %}
+<div class="profile">
+    <div class="medium-frame info">
+        <img class = "card medium-photo" src="{{profile.profile_picture.url}}" alt="ProfilePic">
+    </div>
+    <div class="info">
+        <h3>{{profile.name}}</h3>
+        <h5>Current City: {{profile.current_city}}</h5>
+        <h5>Member since: {{date}}</h5>
+        <div>
+            <a href="{% url 'add_post'%}" class = "profile-buttons btn">Add new Post</a>
+            <a href="{% url 'edit_profile' profile.id %}" class = "profile-buttons btn">Edit Profile</a>
+        </div>
+    </div>
+</div>
+
+<div class="tiles">
+    {% for post in posts %}
+            <a href="{%url 'post_detail' post.id %}">
+                <div class="card city-tile">
+                    <div class="medium-frame">
+                        <img class = "card medium-photo" src="{{post.image.url}}" alt="PostPic"/>
+                    </div>
+                    <div class="description">
+                        <h4>{{post}}</h4>
+                        <h6>{{post.content}}</h6>
+                    </div>
+                </div>
+            </a>
+    {% endfor %}
+</div>  
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('.materialbox').materialbox();
+    });
+</script>
+{% endblock %}

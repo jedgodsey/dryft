@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="parallax-container parallax-img-one">
+    <div class="parallax"><img src="{% static 'images/pexels-philipp-birmes-830891.jpg' %}"></div>
+</div>
+
+<h1 class="about-heading">About <span class="about-brand">DRYFT</span></h1>
+
+<div class="parallax-container parallax-img-two">
+    <div class="parallax"><img src="{% static 'images/pexels-james-wheeler-417074.jpg' %}"></div>
+</div>
+<br>
+<div class="container">
+    <p class="about-paragraph">At DRYFT our mission is to empower people to live lives that are truly experienced.  Our logo is a rendering of a traditional Micronesian stick chart.  Such charts document the wind and current information necessary to cross thousands of miles of open ocean without landmarks or instruments. For thousands of years these intrepid sailors have set out across the waves in search of something more. In the same way we hope that the wisdom of DRYFTs users can propel you to something great. 
+
+    <p class="about-paragraph">Not all who wander are lost, and not all who DRYFT are aimless.</p>
+
+    <p class="about-paragraph"> DRYFT is a Django application created by 4 General Assembly students.  It gives anyone the opportunity to log in and talk about their travel experiences, thereby shining a light for others on their travel decisions.</p>
+    <br><br>
+    <div class="github-link">
+        <a href="https://github.com/jedgodsey/project-2-1020">
+            <i class="fab fa-github"></i>
+            See This Project on GitHub
+        </a>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+    $('.parallax').parallax();
+});
+</script>
+
+{% endblock %}
