@@ -320,8 +320,7 @@ main {
 }
 
 .about-paragraph {
-    padding: 50px;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .github-link {
@@ -380,7 +379,6 @@ main {
     width: 40%;
 }
 
-#map {
-    width: 100%;
-    height: 50vh;
-}
+/* .container {
+    min-height: 100vh;
+} */
