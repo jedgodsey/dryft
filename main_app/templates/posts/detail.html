@@ -1,71 +1,63 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Detail Post
+    Detail Post
 {% endblock %}
 
 {% block content %}
-<h1>{{post}}</h1>
-<div class="container">
-         
-        
-        <div class="col s1 m6 14">
-            <img class="profilePicture materialbox responsive-img" src="{{author.profile_picture.url}}" alt="ProfilePic">
-        </div>      
-        <div class="col s1 m6 14">
-            <h4>{{author.name}}</h4>
-            <img class = "postPreview materialbox responsive-img" src="{{post.image.url}}" alt="PostPic">
-            <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
-            {{post.date}}
-            <p class="flow-text">{{post.content}}</p>
+    <div class="container">
+        <h2>{{post}}</h2>
+        <img class="profilePicture materialbox responsive-img" src="{{author.profile_picture.url}}" alt="ProfilePic">
+        <h4>{{author.name}}</h4>
+        <div class="row card">
+                <img class = "materialbox responsive-img center" src="{{post.image.url}}" width="100%">
         </div>
-    
- 
+        <a href="{% url 'city_detail' post.city.id %}"><h3>City: {{post.city}}</h3></a>
+        {{post.date}}
+        <p class="flow-text">{{post.content}}</p>
+        {% if modifiable %}
+            <button data-target="modal1" class="btn red modal-trigger">Delete</button>
 
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Warning!</h4>
+                    <p>You are about to delete this post! Would you like to continue?</p>
+                </div>
+            </div>
 
-{% if modifiable %}
-<button data-target="modal1" class="btn red modal-trigger">Delete</button>
-
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Warning!</h4>
-        <p>You are about to delete this post! Would you like to continue?</p>
-    </div>
-</div>
-
-<a href="{% url 'post_edit' post.id %}" class="btn  blue accent-3">Edit</a>
-{% endif %}
-<br>
-<h5>All Comments</h5>
-<div class = "postComments">
-    {% for comment in comments %}
-    <h3>
-        {{comment}} by {{comment.profile.user.username}}
-        {% if comment.profile.user == current_user %}
-            <a href="{% url 'delete_comment' post.id comment.id %}" class="btn red">Delete</a>
+            <a href="{% url 'post_edit' post.id %}" class="btn  blue accent-3">Edit</a>
         {% endif %}
-    </h3>
-    {% endfor%}
-</div>
-<form action="{% url 'add_comment' post.id%}" method="POST">
+            <br>
+            <h5>All Comments</h5>
+            <div class = "postComments">
+                {% for comment in comments %}
+                <h3>
+                    {{comment}} by {{comment.profile.user.username}}
+                    {% if comment.profile.user == current_user %}
+                        <a href="{% url 'delete_comment' post.id comment.id %}" class="btn red">Delete</a>
+                    {% endif %}
+                </h3>
+                {% endfor%}
+            </div>
+            <form action="{% url 'add_comment' post.id %}" method="POST">
 
-    <!-- CSRF TOKEN - Cross Site Request Forgery -->
-    {% csrf_token %}
+                <!-- CSRF TOKEN - Cross Site Request Forgery -->
+                {% csrf_token %}
 
-    {{ comment_form.as_p }}
+                {{ comment_form.as_p }}
 
-    <button class="btn  blue accent-3" type="submit"> Add Comment</button>
+                <button class="btn accent-3" type="submit"> Add Comment</button>
+                <br><br><br>
+            </form>
+        </div>
+    </div>
 
-</form>
+    <script>
 
-</div>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('.materialbox').materialbox();
+    });
 
-<script>
-
-$(document).ready(function(){
-    $('.modal').modal();
-    $('.materialbox').materialbox();
-});
-
-</script>
+    </script>
 {% endblock %}

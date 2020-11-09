@@ -5,38 +5,36 @@ Detail City
 {% endblock %}
 
 {% block content %}
-<h3 class="flow-text center">{{city}} , {{city.country}} </h3>
+    <h3 class="flow-text center">{{city}}, {{city.country}} </h3>
     <div class="container">
-        <div class="row card" width="10"> 
-            <div class="col card s10 m6 25" width="110">
-                {% if city.image %}
-                <img class = "materialbox responsive-img card center" src="{{city.image.url}}" width="100%" />
-                {% else %}
-                <img class = "materialbox responsive-img card center" src="{{city.image_url}}" width="100%" />
-                {% endif %}
-            </div>
+        <div class="row card">
+            {% if city.image %}
+                <img class = "materialbox responsive-img center" src="{{city.image.url}}" width="100%" />
+            {% else %}
+                <img class = "materialbox responsive-img center" src="{{city.image_url}}" width="100%" />
+            {% endif %}
         </div>
-    </div>
-    <div class="container">
-        <div class="row card"> 
-        <h4 class="flow-text">User Posts</h4>
-        {% for post in posts %}
-        <a href="{%url 'post_detail' post.id%}">     
-            <div class = "col s10 m3 25">  
-                {{post}}
-                <img class = "materialbox responsive-img card center" src="{{post.image.url}}" alt="PostPic">
-            </div>
-            
-        </a>
-        {% endfor%}
-        </div>
-    </div>
 
-<a href="{% url 'add_post_inside_city' city.id %}" class = "btn">Add new Post</a>
-<script>
-    $(document).ready(function(){
-        $('.modal').modal();
-        $('.materialbox').materialbox();
-    });
-</script>
+        <a href="{% url 'add_post_inside_city' city.id %}" class = "btn">Add new Post</a>
+    </div>
+    <div class="tiles">
+        {% for post in posts %}
+                <a href="{% url 'post_detail' post.id %}">
+                    <div class="card city-tile">
+                        <div class="medium-frame">
+                            <img class = "card medium-photo" src="{{post.image.url}}" alt="PostPic">
+                        </div>
+                        <div class="description">
+                            <h4>{{post}}</h4>
+                        </div>
+                    </div>
+                </a>
+        {% endfor %}
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+            $('.materialbox').materialbox();
+        });
+    </script>
 {% endblock %}

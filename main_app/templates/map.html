@@ -11,24 +11,25 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfSq-RTIlRibfDmiBPkJNY5gb4owcUcEY&callback=initMap&libraries=&v=weekly" defer ></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class="container">
+  <h1>Find Your City</h1>
 
-    <h1>Map</h1>
+  <div id="map"></div>
 
-    <div id="map"></div>
+  <div class = "mapForm">
+    <h5>Select your city from the map above</h5>
+    <form action="{% url 'add_city_from_maps' %}" method="POST">
 
-    <div class = "mapForm">
-      <form action="{% url 'add_city_from_maps' %}" method="POST">
-
-        <!-- CSRF TOKEN - Cross Site Request Forgery -->
-        {% csrf_token %}
-    
-        {{ form.as_p }}
-    
-        <button id ="add_city" class="btn  blue accent-3" type="submit"> Add City</button>
-    
-      </form>
-    </div>
+      <!-- CSRF TOKEN - Cross Site Request Forgery -->
+      {% csrf_token %}
   
+      {{ form.as_p }}
+  
+      <button id ="add_city" class="btn accent-3" type="submit"> Add City</button>
+  
+    </form>
+  </div>
+</div>
 
 <script>
     function initMap() {
@@ -100,5 +101,3 @@
 
 
 {% endblock %}
-
-
