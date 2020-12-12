@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'dryft_project.urls'
+ROOT_URLCONF = 'dryft_project.urls' # maybe this here? ----------------------------------------------------
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dryft_project.wsgi.application'
+WSGI_APPLICATION = 'dryft_project.wsgi.application' # or this here? -------------------------------------------
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Database
