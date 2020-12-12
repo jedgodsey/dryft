@@ -1,1 +1,1 @@
-web: gunicorn dryft.wsgi --preload
+web: gunicorn dryft_project.wsgi --preload
