@@ -1,1 +1,1 @@
-web: gunicorn WAYFARER.wsgi
+web: gunicorn dryft.wsgi
