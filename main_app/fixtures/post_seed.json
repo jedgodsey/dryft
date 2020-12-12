@@ -1,0 +1,90 @@
+[
+    {
+      "model": "main_app.Post",
+      "pk": 1,
+      "fields": {
+        "title": "Nice Mediterranean City",
+        "content": "We visited Alexandria city in December 2018.Driving by sea side was quite enjoyable .One can see sea on right side and city landmarks on the left side till the fort ,where once the famous light house stood during Alexandria's time.We saw the fort area constructed in the sea side.The most famous place in Alexandria is the Library ,the Museum which gives the history of Alexandria.A statue of Alexander the great can be seen in the Library campus.",
+        "profile": 1,
+        "image": "images/user-alexandria.jpg",
+        "city": 1
+      }
+    },
+    {
+        "model": "main_app.Post",
+        "pk": 2,
+        "fields": {
+          "title": "A good 4 days",
+          "content": "Metin and Arif were friendly and my tour was knowledgeable and happy to answer to my many questions, Gökhan was helpful in getting me to a different drop off location than the group. I'm grateful for their help!",
+          "profile": 2,
+          "image": "images/user-istanbul.jpg",
+          "city": 2
+        }
+      },
+      {
+        "model": "main_app.Post",
+        "pk": 3,
+        "fields": {
+          "title": "So pleasurable",
+          "content": "Visited Cusco between 14th and 19th July, and I have organized accommodation and tours with Machu Picchu Travel. Loved the staff service from the beginning. I arranged all the bookings and tours 3 months in advance via email since I live in New Zealand, and and the response was very prompt, no delays and all my enquiries solved. In terms of cost the company exceeded my exoectations. If someone here is looking for a serious and responsible Tour company able to book accommodation for you too, I highly recommend them.",
+          "profile": 3,
+          "image": "images/user-machupicchu.jpg",
+          "city": 3
+        }
+      },
+      {
+        "model": "main_app.Post",
+        "pk": 4,
+        "fields": {
+          "title": "Bond, James Bond.",
+          "content": "Squeezed into just 200 hectares, Monaco might be the world’s second-smallest country (only the Vatican is smaller), but what it lacks in size it makes up for in attitude. A magnet for high-rollers and hedonists since the early 20th century, it's also renowned as one of the world's most notorious tax havens and home to the annual Formula One Grand Prix.",
+          "profile": 4,
+          "image": "images/user-montecarlo.jpg",
+          "city": 4
+        }
+      },
+    {
+      "model": "main_app.Post",
+      "pk": 5,
+      "fields": {
+        "title": "Alexandria is DOPE",
+        "content": "I rode through the colorful streets of Alexandria with much architecture of the past. Highlights of Alexandria enclose a statue of Mohamed Ali, monument to the unknown soldier, the Mosque of Abu El Abbas and Qait Bey Fort which is built on the site of the Pharaohs of Alexandria. I vistied Catacombs of Shawaqafa and the National Museum, which words can not do justice ,you have to see for one self. In Museum was objects from Cleopatra on display. We drive to Montaza Gardens to view the summer residence palace of the former King of Egypt, Farouk. This was one of six ports we visited on our Holyland trip.",
+        "profile": 1,
+        "image": "images/user-alexandria.jpg",
+        "city": 1
+      }
+    },
+    {
+        "model": "main_app.Post",
+        "pk": 6,
+        "fields": {
+          "title": "Can't wait to go back to Istanbul",
+          "content": "Metin arranged a tailor made tour of several cities in Turkey for my family and I. Every detail from the choice of hotels to the daily sightseeing tours was impeccable. I am very grateful to have stumbled across this company's details on Trip Advisor. Words cannot express my sincere thanks to Metin for his great support and personal attention to every little detail of our tour. I would highly recommend this tour company for all your travel needs within this beautiful country. Thanks to Metin, my family and I had one of our most memorable holidays ever!",
+          "profile": 2,
+          "image": "images/user-istanbul.jpg",
+          "city": 2
+        }
+      },
+      {
+        "model": "main_app.Post",
+        "pk": 7,
+        "fields": {
+          "title": "I can feel the spirits up here.",
+          "content": "Aguas Calientes or Machu Picchu village is an overcrowded town below Machu Picchu. While it is convenient to lodge here before visiting Machu Picchu, the commercial businesses & noise competes with the tranquility & majestic scenery of Machu Picchu. Many international restaurants & chains are open in the small area. The town square is an interesting place to sit, but would be nicer, if it was not surrounded by the restaurants & bars whose proprietors are loudly encouraging visitors to enter their cafes & bars.",
+          "profile": 3,
+          "image": "images/user-machupicchu.jpg",
+          "city": 3
+        }
+      },
+      {
+        "model": "main_app.Post",
+        "pk": 8,
+        "fields": {
+          "title": "Wish I could afford to LIVE here!",
+          "content": "Monte-Carlo is home to the celebrated Monte Carlo Casino. This glamorous palace is full of frescoes, sculptures, and features an astonishing gold and marble atrium—not to mention the main attraction—gambling! Steeped in 700 years of Grimaldi royal history, Monte-Carlo’s location is stunning, tucked between French medieval villages and the Alps. Take in a world-class opera or ballet, bask in the sun on Larvotto Beach or get an adrenaline rush at May's Formula 1 Grand Prix.",
+          "profile": 4,
+          "image": "images/user-montecarlo.jpg",
+          "city": 4
+        }
+      }
+]

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wayfarer - {% block title %}{% endblock %}</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <!-- Materialize CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  {% comment %} Materilaize JS CDN {% endcomment %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+  <!-- Jquery CDN -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <ul class="left logo-container">
+          <li class="logo-list">
+            <a href="/" class="brand-logo"><img src="/static/logos/dryft-logo-GREEN.svg" class="logo"><sup class="logo-text">DRYFT</sup></a>
+          </li>
+        </ul>
+        
+        <ul class="right nav-holder">
+          <li><a href="/">Home</a></li>
+          <li class="nav-holder"><a href="{% url 'about' %}">About</a></li>
+          {% if user.is_authenticated %}
+            <li class="nav-holder"><a href="{% url 'profile' %}">Profile</a></li>
+            <li class="nav-holder"><a href="{% url 'cities' %}">Destinations</a></li>
+            <li class="nav-holder"><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+            <li class="nav-holder"><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li class="nav-holder"><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav> 
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer class="page-footer">
+    <div class="right">
+      <h5>DRYFT</h5>
+      All Rights Reserved, &copy; 2020 Dryft, Inc.</div>
+  </footer>
+  
+  <script src="{% static 'javascript/main.js' %}"></script>
+  <script>
+  $(document).ready(function(){
+        $('.modal').modal();
+        $('.materialbox').materialbox();
+    });
+  </script>
+</body>
+</html>

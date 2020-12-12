@@ -1,0 +1,42 @@
+[
+    {
+      "model": "main_app.Profile",
+      "pk": 1,
+      "fields": {
+        "name": "Bryan Romero",
+        "email": "bromero@dryft.com",
+        "current_city": 1,
+        "profile_picture": "images/bryan.png"
+      }
+    },
+    {
+        "model": "main_app.Profile",
+        "pk": 2,
+        "fields": {
+          "name": "Jed Godsey",
+          "email": "jgodsey@dryft.com",
+          "current_city": 2,
+          "profile_picture": "images/jed.jpg"
+        }
+    },
+    {
+        "model": "main_app.Profile",
+        "pk": 3,
+        "fields": {
+          "name": "Josh Pardike",
+          "email": "jpardike@dryft.com",
+          "current_city": 3,
+          "profile_picture": "images/josh.jpg"
+        }
+    },
+    {
+        "model": "main_app.Profile",
+        "pk": 4,
+        "fields": {
+          "name": "Sridar Edam",
+          "email": "sedam@dryft.com",
+          "current_city": 4,
+          "profile_picture": "images/sridar.jpg"
+        }
+    }
+]

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="carousel carousel-slider center">
+  <div class="carousel-fixed-item center">
+    <a href="{% url 'about' %}" class="btn waves-effect">Learn Our Story</a>
+  </div>
+  <div class="carousel-item white-text" href="#two!">
+    <div class="big-frame">
+      <img src="https://cdn.theculturetrip.com/wp-content/uploads/2017/01/9281670581_4270e671e0_k.jpeg" class="big-photo">
+    </div>
+  </div>
+  <div class="carousel-item white-text" href="#one!">
+    <div class="big-frame">
+      <img src="https://www.sftravel.com/sites/sftravel.prod.acquia-sites.com/files/field/image/Bay-to-Breakers-Header.jpg" class="big-photo">
+    </div>
+  </div>
+  <div class="carousel-item white-text" href="#three!">
+    <div class="big-frame">
+      <img src="https://www.worldphoto.org/sites/default/files/Mohammad%20Reza%20Domiri%20Ganji%2C%20Iran%20%2C%20Shortlist%2C%20Open%2C%20Panoramic%2C%202015%20Sony%20World%20Photography%20Awards%20%282%29.jpg" class="big-photo">
+    </div>
+  </div>
+  <div class="carousel-item white-text" href="#four!">
+    <div class="big-frame">
+      <img src="https://www.teamvvv.com/wp-content/uploads/2018/05/tt-isle-of-man-1919x873.jpg" class="big-photo">
+    </div>
+  </div>
+</div>
+
+<h3 class="featured-posts center-align">Featured Posts</h3>
+
+<!-- Three Cards Underneath Carousel as requested by Customer -->
+<section class = "lowerHomeSection">
+
+  <div class="card large">
+    <a href="{% url 'post_detail' posts.0.id %}">
+      <div class="card-image">
+        <img class="home-card-image" src="./media/{{posts.0.image}}" alt="post image">
+      </div>
+      <div id="home-card-text" class="card-content home-card-text">
+        <h5>{{posts.0.title}}</h5>
+        <h6>{{posts.0.city.name}}, {{posts.0.city.country}}</h6>
+        <p>{{posts.0.content}}</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="card large">
+    <a href="{% url 'post_detail' posts.1.id %}">
+      <div class="card-image">
+        <img class="home-card-image" src="./media/{{posts.1.image}}" alt="post image">
+      </div>
+      <div id="home-card-text" class="card-content home-card-text">
+        <h5>{{posts.1.title}}</h5>
+        <h6>{{posts.1.city.name}}, {{posts.1.city.country}}</h6>
+        <p>{{posts.1.content}}</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="card large">
+    <a href="{% url 'post_detail' posts.2.id %}">
+      <div class="card-image">
+        <img class="home-card-image" src="./media/{{posts.2.image}}" alt="post image">
+      </div>
+      <div id="home-card-text" class="card-content home-card-text">
+        <h5>{{posts.2.title}}</h5>
+        <h6>{{posts.2.city.name}}, {{posts.2.city.country}}</h6>
+        <p>{{posts.2.content}}</p>
+      </div>
+    </a>
+  </div>
+
+</section>
+<script>
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+  // Makes Carousel Rotate
+  setInterval(()=>{
+    $('.carousel').carousel('next');
+  },6000)
+</script>
+{% endblock %}
