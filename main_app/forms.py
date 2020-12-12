@@ -18,6 +18,13 @@ class CityForm(forms.ModelForm):
         model = City
         fields = ("name","country","image")
 
+
+class CityForm1(forms.ModelForm):
+    # cities = forms.ModelChoiceField(queryset=City.objects.all())
+    class Meta:
+        model = City
+        fields = ("name","country","image_url")       
+
 class CommentForm(forms.ModelForm):
     
     class Meta:

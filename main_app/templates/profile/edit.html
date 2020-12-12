@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class = "formBox">
 
   <h1>Edit Profile</h1>
 
@@ -9,11 +10,12 @@
     {% csrf_token %}
 
     {{ form.as_p }}
-
+    <a href="{% url 'map_view'%}">Can't Find Your City?</a>
+    <br><br>
     <button class="btn" type="submit">Update Profile</button>
 
   </form>
-
+</div>
 <script>
     const selectEl = document.getElementById('id_current_city');
     M.FormSelect.init(id_current_city);

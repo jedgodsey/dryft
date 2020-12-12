@@ -1,0 +1,74 @@
+[
+    {
+      "model": "main_app.Comment",
+      "pk": 1,
+      "fields": {
+        "post": 1,
+        "comment": "Love this pic.  Do you have any more?",
+        "profile": 1
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 2,
+      "fields": {
+        "post": 1,
+        "comment": "reading this post I feel like I'm already there.",
+        "profile": 2
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 3,
+      "fields": {
+        "post": 2,
+        "comment": "I visited after my wedding and I can't believe I haven't been back yet.",
+        "profile": 3
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 4,
+      "fields": {
+        "post": 2,
+        "comment": "The pictures and the post make me feel like I'm already there.",
+        "profile": 4
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 5,
+      "fields": {
+        "post": 3,
+        "comment": "If you go there in the summer you have to try Bernardo's kabobs.  Delicious!",
+        "profile": 1
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 6,
+      "fields": {
+        "post": 3,
+        "comment": "This picture looks a little funny... I didn't think that angle was possible.",
+        "profile": 2
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 7,
+      "fields": {
+        "post": 4,
+        "comment": "If you go remember to watch your wallet! They really go after the tourists there.",
+        "profile": 3
+      }
+    },
+    {
+      "model": "main_app.Comment",
+      "pk": 8,
+      "fields": {
+        "post": 4,
+        "comment": "Your trip sounds fun, but I didn't enjoy mine.  Maybe I was there in the wrong time of year.",
+        "profile": 4
+      }
+    }
+]

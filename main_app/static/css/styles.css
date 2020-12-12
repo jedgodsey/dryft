@@ -3,9 +3,11 @@
     --light: rgb(0,255,113);
     --white: rgb(255, 255, 255);
 }
-a{
+a {
     color: var(--dark);
 }
+
+/* FONTS */
 @font-face {
     font-family: 'base';
     src: local('replica-regular'), url('../fonts/replica-regular.ttf') format("truetype");
@@ -37,14 +39,48 @@ body {
     background-color: var(--white);
 }
 
+
+/* NAVBAR */
+@media (max-width: 600px) {
+    .brand-logo{
+      height: 50%;
+    }
+}
+
 .nav-wrapper {
     background-color: var(--dark);
-    height: 90px;
 }
 
 nav .brand-logo {
     color: var(--white);
     font-family: 'bold';
+}
+
+/* logo styles */
+.logo-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    white-space: nowrap;
+    
+}
+
+.logo-list {
+    align-content: center;
+}
+
+.logo-list img {
+    max-height: 100%;
+}
+
+.logo-text {
+    max-height: 100%;
+    font-size: 40px;
+    padding-top: 19px;
+}
+
+nav a {
+    height: 100%;
 }
 
 nav ul a {
@@ -56,15 +92,31 @@ main {
     color: var(--dark);
 }
 
-.row div{
+.btn {
+    background: var(--light);
+    color: var(--dark);
+    font-family: 'base';
+}
+
+.row div {
     padding: 10px;
-    background: #ddd;
+    background: #ffff;
     border: 1px solid #ffff;
     line-height: 60px
 }
 
-.row{
-    margin: 40px auto;
+.row {
+    margin: 10px auto;
+}
+
+.col {
+    overflow: hidden;
+}
+
+.col div{
+    background: #ffff;
+    border: 1px solid #ffff;
+    line-height: 5px;
 }
 
 .page-footer {
@@ -78,11 +130,15 @@ main {
     margin: 0 0 5px 0;
 }
 
-.carousel.carousel-slider{
+.carousel .carousel-slider {
     height: 500px ;
 }
 
-.lowerHomeSection{
+.featured-posts {
+    margin: 30px;
+}
+
+.lowerHomeSection {
     margin-top: 2em;
     margin-bottom: 1.5em;
     display: flex;
@@ -92,6 +148,19 @@ main {
 .lowerHomeSection .card {
     padding: 15px;
     width: 25em;
+    transition: transform .2s;
+}
+
+.lowerHomeSection .card:hover {
+    transform: scale(1.1);
+}
+
+.home-card-image {
+    height: 180px;
+}
+
+.card a {
+    width: 100%;
     height: 100%;
 }
 
@@ -101,6 +170,12 @@ main {
 
 .card p {
     margin: 0;
+}
+
+#home-card-text {
+    max-height: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .profileMain {
@@ -126,7 +201,7 @@ main {
     width: 70%;
 }
 
-.profilePicture{
+.profilePicture {
     width: 10em;
     height: 10em;
     object-fit: cover;
@@ -146,22 +221,21 @@ main {
     margin: 10px;
 }
 
-.PostSection{
+.PostSection {
     display: flex;
     flex-direction: column;
 }
 
-.profiles-posts{
+.profiles-posts {
     margin: 15px;
 }
 
-.allPost{
+.allPost {
     display: flex;
     padding: 0px 2em;
 }
 
-
-.allPost .card{
+.allPost .card {
     display: flex;
     flex-direction: column;
     margin: 1em 1.5em;
@@ -170,7 +244,8 @@ main {
     width: 80%;
     height: 100%;
 }
-.postPreview{
+
+.postPreview {
     width: 90%;
     height: auto;
     margin: 15px auto 10px ;
@@ -178,27 +253,29 @@ main {
     border-radius: 1%;
     border-style: solid;
 }
-.postText{
+
+.postText {
     margin-left: 10px;
 }
-.profileMain .right{
+
+.profileMain .right {
     display:flex;
     align-items:center;
     justify-content: space-between;
     width: 42em;
 }
-.card h4{
+.card h4 {
     margin-top: 0px;
 }
 
-.postHeader{
+.postHeader {
     display: flex;
 }
 
-.postBody{
+.postBody {
     padding: 20px;
 }
-.postPicture{
+.postPicture {
     width: auto;
     height: auto;
 }
@@ -216,30 +293,92 @@ main {
     margin: auto;
 }
 
-/* logo styles */
-.logo-list {
+.medium-frame {
+    width: 85%;
+    height: 60%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.medium-photo {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 150%;
+    max-height: 150%;
+}
+
+.about-heading {
+    margin: 50px;
+}
+
+.about-brand {
+    font-family: 'bold';
+}
+
+.para-img-two, .para-img-one {
+    height: 200px;
+}
+
+.about-paragraph {
+    font-size: 1.5em;
+}
+
+.github-link {
     display: flex;
-    white-space: nowrap;
-    line-height: 90px;
+    justify-content: center;
 }
 
-.logo-list img {
-    max-height: 80px;
+.fa-github {
+    font-size: 8em;
+    margin-bottom: 50px;
+    color: var(--dark);
 }
 
-sup {
-    font-size: 40px;
+.fa-github:hover {
+    color: var(--light);
+}
+.row .card{
+    margin: 10px;
 }
 
-/* navbar styles */
-.navbar-fixed {
-    height: 90px;
+.tiles {
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px;
+}
+.city-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 400px;
 }
 
-.nav-holder {
-    height: 90px;
+.description {
+    height: 25%;
 }
 
-.nav-holder li {
-    height: 90px;
+.formBox{
+    padding: 0% 10%;
 }
+
+.profile {
+    width: 90vw;
+    height: 30vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info {
+    width: 40%;
+}
+
+/* .container {
+    min-height: 100vh;
+} */
